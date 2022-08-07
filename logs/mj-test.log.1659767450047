@@ -1,0 +1,45 @@
+INFO  08:30:07,932 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  08:30:08,021 - #2 program
+INFO  08:30:08,022 - #22 test301
+INFO  08:30:08,022 - #7 const
+INFO  08:30:08,023 - #22 int
+INFO  08:30:08,023 - #22 nula
+INFO  08:30:08,024 - #39 =
+INFO  08:30:08,024 - #23 0
+INFO  08:30:08,025 - #42 ;
+INFO  08:30:08,027 - #7 const
+INFO  08:30:08,029 - #22 int
+INFO  08:30:08,029 - #22 jedan
+INFO  08:30:08,029 - #39 =
+INFO  08:30:08,029 - #23 1
+INFO  08:30:08,029 - #42 ;
+INFO  08:30:08,029 - #7 const
+INFO  08:30:08,029 - #22 int
+INFO  08:30:08,030 - #22 tri
+INFO  08:30:08,030 - #39 =
+INFO  08:30:08,030 - #23 3
+INFO  08:30:08,030 - #42 ;
+INFO  08:30:08,030 - #7 const
+INFO  08:30:08,031 - #22 int
+INFO  08:30:08,031 - #22 pet
+INFO  08:30:08,031 - #39 =
+INFO  08:30:08,031 - #23 5
+INFO  08:30:08,031 - #42 ;
+INFO  08:30:08,031 - #22 int
+INFO  08:30:08,031 - #22 niz
+INFO  08:30:08,032 - #48 [
+INFO  08:30:08,032 - #49 ]
+INFO  08:30:08,032 - #42 ;
+INFO  08:30:08,035 - #22 char
+INFO  08:30:08,037 - #22 nizch
+INFO  08:30:08,037 - #48 [
+INFO  08:30:08,037 - #49 ]
+INFO  08:30:08,037 - #42 ;
+INFO  08:30:08,037 - #50 {
+INFO  08:30:08,037 - #15 void
+INFO  08:30:08,039 - #22 main
+INFO  08:30:08,040 - #46 (
+INFO  08:30:08,040 - #47 )
+ERROR 08:30:08,040 - 
+Syntax error. on line 14
+ERROR 08:30:08,040 - Fatal error, parsing can not be continued. on line 14

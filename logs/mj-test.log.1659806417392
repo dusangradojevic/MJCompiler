@@ -1,0 +1,47 @@
+INFO  19:20:02,974 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  19:20:04,904 - #2 program
+INFO  19:20:04,904 - #22 test302
+INFO  19:20:04,905 - #7 const
+INFO  19:20:04,914 - #22 int
+INFO  19:20:04,914 - #22 jedan
+INFO  19:20:04,927 - #39 =
+INFO  19:20:04,927 - #23 1
+INFO  19:20:04,927 - #42 ;
+INFO  19:20:04,955 - #22 int
+INFO  19:20:04,978 - #22 i
+INFO  19:20:04,978 - #42 ;
+INFO  19:20:05,003 - #22 bool
+INFO  19:20:05,023 - #22 ibool
+INFO  19:20:05,023 - #42 ;
+INFO  19:20:05,023 - #22 int
+INFO  19:20:05,023 - #22 niz2
+INFO  19:20:05,023 - #42 ;
+INFO  19:20:05,023 - #22 int
+INFO  19:20:05,024 - #22 niz
+INFO  19:20:05,024 - #48 [
+INFO  19:20:05,024 - #49 ]
+INFO  19:20:05,024 - #42 ;
+INFO  19:20:05,043 - #22 int
+INFO  19:20:05,043 - #22 a
+INFO  19:20:05,043 - #42 ;
+INFO  19:20:05,043 - #50 {
+INFO  19:20:05,043 - #22 int
+ERROR 19:20:05,043 - 
+Syntax error. on line 17
+ERROR 19:20:05,043 - Fatal error, parsing can not be continued. on line 17
+INFO  19:20:05,044 - #22 sum
+INFO  19:20:05,044 - #46 (
+INFO  19:20:05,044 - #22 int
+INFO  19:20:05,044 - #22 z
+INFO  19:20:05,044 - #44 ,
+INFO  19:20:05,044 - #22 int
+INFO  19:20:05,044 - #22 d
+INFO  19:20:05,044 - #47 )
+INFO  19:20:05,044 - #50 {
+INFO  19:20:05,044 - #14 return
+INFO  19:20:05,044 - #22 z
+INFO  19:20:05,044 - #26 +
+INFO  19:20:05,044 - #22 d
+INFO  19:20:05,044 - #42 ;
+INFO  19:20:05,044 - #51 }
+INFO  19:20:05,044 - #51 }

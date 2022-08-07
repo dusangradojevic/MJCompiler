@@ -1,0 +1,62 @@
+INFO  16:51:54,170 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  16:51:54,256 - #2 program
+INFO  16:51:54,256 - #22 test302
+INFO  16:51:54,256 - #7 const
+INFO  16:51:54,258 - #22 int
+INFO  16:51:54,258 - #22 jedan
+INFO  16:51:54,259 - #39 =
+INFO  16:51:54,259 - #23 1
+INFO  16:51:54,259 - #42 ;
+INFO  16:51:54,261 - #22 int
+INFO  16:51:54,262 - #22 i
+INFO  16:51:54,262 - #42 ;
+INFO  16:51:54,265 - #22 bool
+INFO  16:51:54,266 - #22 ibool
+INFO  16:51:54,266 - #42 ;
+INFO  16:51:54,266 - #22 int
+INFO  16:51:54,266 - #22 niz2
+INFO  16:51:54,266 - #42 ;
+INFO  16:51:54,266 - #22 int
+INFO  16:51:54,266 - #22 niz
+INFO  16:51:54,266 - #48 [
+INFO  16:51:54,266 - #49 ]
+INFO  16:51:54,310 - #42 ;
+INFO  16:51:54,314 - #22 int
+INFO  16:51:54,314 - #22 a
+INFO  16:51:54,315 - #42 ;
+INFO  16:51:54,315 - #50 {
+INFO  16:51:54,316 - #22 int
+ERROR 16:51:54,316 - 
+Syntax error. on line 17
+ERROR 16:51:54,317 - Fatal error, parsing can not be continued. on line 17
+INFO  16:52:15,804 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  16:52:15,906 - #2 program
+INFO  16:52:15,969 - #22 test302
+INFO  16:52:15,970 - #7 const
+INFO  16:52:15,975 - #22 int
+INFO  16:52:15,975 - #22 jedan
+INFO  16:52:15,980 - #39 =
+INFO  16:52:15,980 - #23 1
+INFO  16:52:15,981 - #42 ;
+INFO  16:52:15,991 - #22 int
+INFO  16:52:15,996 - #22 i
+INFO  16:52:15,996 - #42 ;
+INFO  16:52:16,009 - #22 bool
+INFO  16:52:16,014 - #22 ibool
+INFO  16:52:16,015 - #42 ;
+INFO  16:52:16,015 - #22 int
+INFO  16:52:16,015 - #22 niz2
+INFO  16:52:16,015 - #42 ;
+INFO  16:52:16,016 - #22 int
+INFO  16:52:16,016 - #22 niz
+INFO  16:52:16,016 - #48 [
+INFO  16:52:16,017 - #49 ]
+INFO  16:52:16,017 - #42 ;
+INFO  16:52:16,021 - #22 int
+INFO  16:52:16,022 - #22 a
+INFO  16:52:16,022 - #42 ;
+INFO  16:52:16,023 - #50 {
+INFO  16:52:16,023 - #22 int
+ERROR 16:52:16,024 - 
+Syntax error. on line 17
+ERROR 16:52:16,025 - Fatal error, parsing can not be continued. on line 17

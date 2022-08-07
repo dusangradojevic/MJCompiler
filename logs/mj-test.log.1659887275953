@@ -1,0 +1,40 @@
+INFO  17:11:33,324 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  17:11:33,528 - #2 program
+INFO  17:11:33,528 - #22 test302
+INFO  17:11:33,528 - #7 const
+INFO  17:11:33,529 - #22 int
+INFO  17:11:33,529 - #22 jedan
+INFO  17:11:33,530 - #39 =
+INFO  17:11:33,530 - #23 1
+INFO  17:11:33,530 - #42 ;
+INFO  17:11:33,533 - #22 int
+INFO  17:11:33,535 - #22 i
+INFO  17:11:33,535 - #42 ;
+INFO  17:11:33,539 - #22 bool
+INFO  17:11:33,540 - #22 ibool
+INFO  17:11:33,540 - #42 ;
+INFO  17:11:33,540 - #22 int
+INFO  17:11:33,540 - #22 niz2
+INFO  17:11:33,540 - #42 ;
+INFO  17:11:33,540 - #22 int
+INFO  17:11:33,540 - #22 niz
+INFO  17:11:33,540 - #48 [
+INFO  17:11:33,540 - #49 ]
+INFO  17:11:33,541 - #42 ;
+INFO  17:11:33,542 - #22 int
+INFO  17:11:33,542 - #22 a
+INFO  17:11:33,542 - #42 ;
+INFO  17:11:33,542 - #50 {
+INFO  17:11:33,543 - #22 int
+INFO  17:11:33,544 - #22 sum
+INFO  17:11:33,544 - #46 (
+INFO  17:11:33,544 - #22 int
+INFO  17:11:33,544 - #22 z
+INFO  17:11:33,544 - #44 ,
+INFO  17:11:33,544 - #22 int
+INFO  17:11:33,544 - #22 d
+INFO  17:11:33,544 - #47 )
+INFO  17:11:33,544 - #50 {
+ERROR 17:11:33,544 - 
+Syntax error. on line 17
+ERROR 17:11:33,545 - Fatal error, parsing can not be continued. on line 17

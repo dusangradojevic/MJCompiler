@@ -1,0 +1,39 @@
+INFO  08:29:26,118 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  08:29:26,249 - #2 program
+INFO  08:29:26,249 - #22 test301
+INFO  08:29:26,249 - #7 const
+INFO  08:29:26,250 - #22 int
+INFO  08:29:26,251 - #22 nula
+INFO  08:29:26,252 - #39 =
+INFO  08:29:26,252 - #23 0
+INFO  08:29:26,252 - #42 ;
+INFO  08:29:26,254 - #7 const
+INFO  08:29:26,256 - #22 int
+INFO  08:29:26,256 - #22 jedan
+INFO  08:29:26,256 - #39 =
+INFO  08:29:26,256 - #23 1
+INFO  08:29:26,256 - #42 ;
+INFO  08:29:26,256 - #7 const
+INFO  08:29:26,256 - #22 int
+INFO  08:29:26,256 - #22 pet
+INFO  08:29:26,257 - #39 =
+INFO  08:29:26,257 - #23 5
+INFO  08:29:26,257 - #42 ;
+INFO  08:29:26,257 - #22 int
+INFO  08:29:26,257 - #22 niz
+INFO  08:29:26,257 - #48 [
+INFO  08:29:26,257 - #49 ]
+INFO  08:29:26,257 - #42 ;
+INFO  08:29:26,260 - #22 char
+INFO  08:29:26,262 - #22 nizch
+INFO  08:29:26,262 - #48 [
+INFO  08:29:26,262 - #49 ]
+INFO  08:29:26,262 - #42 ;
+INFO  08:29:26,262 - #50 {
+INFO  08:29:26,262 - #15 void
+INFO  08:29:26,263 - #22 main
+INFO  08:29:26,264 - #46 (
+INFO  08:29:26,264 - #47 )
+ERROR 08:29:26,264 - 
+Syntax error. on line 13
+ERROR 08:29:26,265 - Fatal error, parsing can not be continued. on line 13
