@@ -103,12 +103,18 @@ nonterminal MethodDecl MethodDecl;
 non terminal ReturnType ReturnType;
 non terminal FormPars FormPars;
 nonterminal FormParsIdent FormParsIdent;
+nonterminal FormParsIdentList FormParsIdentList;
+nonterminal FormParsOptArgsList FormParsOptArgsList;
+non terminal OptArgs OptArgs;
+nonterminal OptArgsIdent OptArgsIdent;
+nonterminal OptArgsIdentList OptArgsIdentList;
 non terminal Type Type;
 non terminal Statement Statement;
 nonterminal SingleStatement SingleStatement;
 nonterminal Statements Statements;
 nonterminal StatementList StatementList;
 nonterminal DesignatorStatement DesignatorStatement;
+nonterminal ElseOpt ElseOpt;
 
 non terminal Expr Expr;
 nonterminal ExprOpt ExprOpt;
@@ -116,7 +122,7 @@ non terminal Label Label;
 non terminal NumConstOpt NumConstOpt;
 non terminal ActParsOpt ActParsOpt;
 nonterminal ActPars ActPars;
-nonterminal ActParsRepeatList ActParsRepeatList;
+nonterminal ActParsList ActParsList;
 non terminal Condition Condition;
 nonterminal ConditionList ConditionList;
 nonterminal CondTerm CondTerm;
@@ -214,23 +220,31 @@ MethodDeclList ::= (MethodDeclListNext) MethodDeclList:M1 MethodDecl:M2 {: RESUL
 				 | (MethodDeclListEpsilon) {: RESULT=new MethodDeclListEpsilon(); :} /* epsilon */
 				 ;
 		 
-MethodDecl ::= (MethodDecl) ReturnType:R1 IDENT:methodName L_PARENTHESES FormPars:F2 R_PARENTHESES VarDeclList:V3 L_BRACES StatementList:S4 R_BRACES {: RESULT=new MethodDecl(R1, F2, V3, S4); RESULT.setLine(R1left); :};
+MethodDecl ::= (MethodDecl) ReturnType:R1 IDENT:methodName L_PARENTHESES FormParsOptArgsList:F2 R_PARENTHESES VarDeclList:V3 L_BRACES StatementList:S4 R_BRACES {: RESULT=new MethodDecl(R1, F2, V3, S4); RESULT.setLine(R1left); :};
 
 ReturnType ::= (ReturnTypeNonVoid) Type:T1 {: RESULT=new ReturnTypeNonVoid(T1); RESULT.setLine(T1left); :} 
 			 | (ReturnTypeVoid) VOID {: RESULT=new ReturnTypeVoid(); :}
-			 ;
-           
-FormPars ::= (FormParsNoList) Type:T1 FormParsIdent:F2 {: RESULT=new FormParsNoList(T1, F2); RESULT.setLine(T1left); :}
-		   | (FormParsWithList) FormPars:F1 COMMA Type:T2 FormParsIdent:F3 {: RESULT=new FormParsWithList(F1, T2, F3); RESULT.setLine(F1left); :}
-		   | (FormParsEpsilon) {: RESULT=new FormParsEpsilon(); :} /* epsilon */
-		   ;
+			 ;	
+					  
+FormParsOptArgsList ::= (FormParsOptArgsListAll) FormPars:F1 COMMA OptArgs:O2 {: RESULT=new FormParsOptArgsListAll(F1, O2); RESULT.setLine(F1left); :}
+               		  | (FormParsOptArgsListFormPars) FormPars:F1 {: RESULT=new FormParsOptArgsListFormPars(F1); RESULT.setLine(F1left); :} 
+               		  | (FormParsOptArgsListOptArgs) OptArgs:O1 {: RESULT=new FormParsOptArgsListOptArgs(O1); RESULT.setLine(O1left); :} 
+               		  | (FormParsOptArgsListEpsilon) {: RESULT=new FormParsOptArgsListEpsilon(); :} /* epsilon */ 
+               		  ;
+				
+FormPars ::= (FormParsNext) FormPars:F1 COMMA Type:T2 FormParsIdent:F3 {: RESULT=new FormParsNext(F1, T2, F3); RESULT.setLine(F1left); :}
+           | (FormParsFirst) Type:T1 FormParsIdent:F2 {: RESULT=new FormParsFirst(T1, F2); RESULT.setLine(T1left); :}
+           ;
 
-FormParsIdent ::= (FormParsIdentifier) IDENT:formParName ArrayDecl:A1 {: RESULT=new FormParsIdentifier(A1); RESULT.setLine(A1left); :}
-		   	    | (FormParsIdentifierErrorRecovery) error {: System.err.println("Recovery error while defining form parameter."); :} {: RESULT=new FormParsIdentifierErrorRecovery(); :}
-           	    ;
+FormParsIdent ::= (FormParsIdentifier) IDENT:formParName ArrayDecl:A1 {: RESULT=new FormParsIdentifier(A1); RESULT.setLine(A1left); :};           	    		   	   		 
+		   	   
+OptArgs ::= (OptArgsNext) OptArgs:O1 COMMA Type:T2 OptArgsIdent:O3 {: RESULT=new OptArgsNext(O1, T2, O3); RESULT.setLine(O1left); :}
+          | (OptArgsFirst) Type:T1 OptArgsIdent:O2 {: RESULT=new OptArgsFirst(T1, O2); RESULT.setLine(T1left); :}
+          ;
+
+OptArgsIdent ::= (OptArgsIdent) IDENT:optArgsName ASSIGNMENT ConstValue:C1 {: RESULT=new OptArgsIdent(C1); RESULT.setLine(C1left); :};
 
 Type ::= (Type) IDENT:typeName {: RESULT=new Type(); :};
-
 
 
 // Statement declarations
@@ -240,9 +254,12 @@ Statement ::= (StatementLabel) Label:L1 COLON SingleStatement:S2 {: RESULT=new S
             | (StatementStatements) Statements:S1 {: RESULT=new StatementStatements(S1); RESULT.setLine(S1left); :}
             ;
             
+StatementList ::= (StatementListNext) StatementList:S1 Statement:S2 {: RESULT=new StatementListNext(S1, S2); RESULT.setLine(S1left); :}
+				| (StatementListEpsilon) {: RESULT=new StatementListEpsilon(); :} /* epsilon */
+	  		    ;
+            
 SingleStatement ::= (SingleStatementDesignatorStatement) DesignatorStatement:D1 SEMICOLON {: RESULT=new SingleStatementDesignatorStatement(D1); RESULT.setLine(D1left); :}
-            	  | (SingleStatementIfElse) IF L_PARENTHESES Condition:C1 R_PARENTHESES Statement:S2 ELSE Statement:S3 {: RESULT=new SingleStatementIfElse(C1, S2, S3); RESULT.setLine(C1left); :}
-            	  | (SingleStatementIf) IF L_PARENTHESES Condition:C1 R_PARENTHESES Statement:S2 {: RESULT=new SingleStatementIf(C1, S2); RESULT.setLine(C1left); :}
+            	  | (SingleStatementIf) IF L_PARENTHESES Condition:C1 R_PARENTHESES Statement:S2 ElseOpt:E3 {: RESULT=new SingleStatementIf(C1, S2, E3); RESULT.setLine(C1left); :}
             	  | (SingleStatementDoWhile) DO Statement:S1 WHILE L_PARENTHESES Condition:C2 R_PARENTHESES SEMICOLON {: RESULT=new SingleStatementDoWhile(S1, C2); RESULT.setLine(S1left); :}
             	  | (SingleStatementBreak) BREAK SEMICOLON {: RESULT=new SingleStatementBreak(); :}
             	  | (SingleStatementContinue) CONTINUE SEMICOLON {: RESULT=new SingleStatementContinue(); :}
@@ -252,31 +269,31 @@ SingleStatement ::= (SingleStatementDesignatorStatement) DesignatorStatement:D1 
             	  | (SingleStatementGoto) GOTO Label:L1 SEMICOLON {: RESULT=new SingleStatementGoto(L1); RESULT.setLine(L1left); :}
             	  ;
 
-Statements ::= (Statements) L_BRACES Statement:S1 R_BRACES {: RESULT=new Statements(S1); RESULT.setLine(S1left); :};
-
-StatementList ::= (StatementListNext) StatementList:S1 Statement:S2 {: RESULT=new StatementListNext(S1, S2); RESULT.setLine(S1left); :}
-				| (StatementListEpsilon) {: RESULT=new StatementListEpsilon(); :} /* epsilon */
-	  		    ;
+Statements ::= (Statements) L_BRACES StatementList:S1 R_BRACES {: RESULT=new Statements(S1); RESULT.setLine(S1left); :};
 	  		    
+ElseOpt ::= (ElseOptNext) ELSE Statement:S1 {: RESULT=new ElseOptNext(S1); RESULT.setLine(S1left); :}
+		  | (ElseOptEpsilon) {: RESULT=new ElseOptEpsilon(); :} /* epsilon */
+		  ;	  		    
+	  		   
 NumConstOpt ::= (NumConstOptNext) COMMA NUM_CONST:numConst {: RESULT=new NumConstOptNext(numConst); RESULT.setLine(numConstleft); :}
            	  | (NumConstOptEpsilon) {: RESULT=new NumConstOptEpsilon(); :} /*epsilon*/
            	  ;
      
-DesignatorStatement ::= (DesignatorStatementAssignop) Designator:D1 ASSIGNMENT Expr:E2 {: RESULT=new DesignatorStatementAssignop(D1, E2); RESULT.setLine(D1left); :}
+DesignatorStatement ::= (DesignatorStatementAssignop) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new DesignatorStatementAssignop(D1, A2, E3); RESULT.setLine(D1left); :}
 					  | (DesignatorStatementActPars) Designator:D1 L_PARENTHESES ActParsOpt:A2 R_PARENTHESES {: RESULT=new DesignatorStatementActPars(D1, A2); RESULT.setLine(D1left); :}
                       | (DesignatorStatementInc) Designator:D1 INCREMENT {: RESULT=new DesignatorStatementInc(D1); RESULT.setLine(D1left); :}
                       | (DesignatorStatementDec) Designator:D1 DECREMENT {: RESULT=new DesignatorStatementDec(D1); RESULT.setLine(D1left); :}
                       ; 	
                       
-ActPars ::= (ActPars) Expr:E1 ActParsRepeatList:A2 {: RESULT=new ActPars(E1, A2); RESULT.setLine(E1left); :} ;  
-                     
+ActPars ::= (ActPars) Expr:E1 ActParsList:A2 {: RESULT=new ActPars(E1, A2); RESULT.setLine(E1left); :};                 
+
+ActParsList ::= (ActParsListNext) ActParsList:A1 COMMA Expr:E2 {: RESULT=new ActParsListNext(A1, E2); RESULT.setLine(A1left); :}
+              | (ActParsListEpsilon) {: RESULT=new ActParsListEpsilon(); :} /* epsilon */
+              ;   
+              
 ActParsOpt ::= (ActParsOptNext) ActPars:A1 {: RESULT=new ActParsOptNext(A1); RESULT.setLine(A1left); :} 
 			 | (ActParsOptEpsilon) {: RESULT=new ActParsOptEpsilon(); :} /* epsilon */ 
-			 ; 
-
-ActParsRepeatList ::= (ActParsRepeatListNext) ActParsRepeatList:A1 COMMA Expr:E2 {: RESULT=new ActParsRepeatListNext(A1, E2); RESULT.setLine(A1left); :}
-                    | (ActParsRepeatListEpsilon) {: RESULT=new ActParsRepeatListEpsilon(); :} /* epsilon */
-                    ;              
+			 ;            
           
 Condition ::= (Condition) CondTerm:C1 ConditionList:C2 {: RESULT=new Condition(C1, C2); RESULT.setLine(C1left); :};    
 
@@ -320,8 +337,8 @@ Factor ::= (FactorDesignatorActPars) Designator:D1 L_PARENTHESES ActParsOpt:A2 R
 		 | (FactorExpr) L_PARENTHESES Expr:E1 R_PARENTHESES {: RESULT=new FactorExpr(E1); RESULT.setLine(E1left); :}
 		 ;
 
-Designator ::= (DesignatorBegin) DesignatorFirst:D1 {: RESULT=new DesignatorBegin(D1); RESULT.setLine(D1left); :}
-			 | (DesignatorEnd) Designator:D1 DesignatorList:D2 {: RESULT=new DesignatorEnd(D1, D2); RESULT.setLine(D1left); :}
+Designator ::= (DesignatorChain) Designator:D1 DesignatorList:D2 {: RESULT=new DesignatorChain(D1, D2); RESULT.setLine(D1left); :}
+			 | (DesignatorBegin) DesignatorFirst:D1 {: RESULT=new DesignatorBegin(D1); RESULT.setLine(D1left); :}
 			 ;
 
 DesignatorList ::= (DesignatorListField) DOT IDENT:fieldName {: RESULT=new DesignatorListField(); :}

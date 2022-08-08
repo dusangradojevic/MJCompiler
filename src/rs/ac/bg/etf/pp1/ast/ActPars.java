@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/7/2022 21:10:5
+// 8/7/2022 23:26:43
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,13 +10,13 @@ public class ActPars implements SyntaxNode {
     private SyntaxNode parent;
     private int line;
     private Expr Expr;
-    private ActParsRepeatList ActParsRepeatList;
+    private ActParsList ActParsList;
 
-    public ActPars (Expr Expr, ActParsRepeatList ActParsRepeatList) {
+    public ActPars (Expr Expr, ActParsList ActParsList) {
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
-        this.ActParsRepeatList=ActParsRepeatList;
-        if(ActParsRepeatList!=null) ActParsRepeatList.setParent(this);
+        this.ActParsList=ActParsList;
+        if(ActParsList!=null) ActParsList.setParent(this);
     }
 
     public Expr getExpr() {
@@ -27,12 +27,12 @@ public class ActPars implements SyntaxNode {
         this.Expr=Expr;
     }
 
-    public ActParsRepeatList getActParsRepeatList() {
-        return ActParsRepeatList;
+    public ActParsList getActParsList() {
+        return ActParsList;
     }
 
-    public void setActParsRepeatList(ActParsRepeatList ActParsRepeatList) {
-        this.ActParsRepeatList=ActParsRepeatList;
+    public void setActParsList(ActParsList ActParsList) {
+        this.ActParsList=ActParsList;
     }
 
     public SyntaxNode getParent() {
@@ -57,18 +57,18 @@ public class ActPars implements SyntaxNode {
 
     public void childrenAccept(Visitor visitor) {
         if(Expr!=null) Expr.accept(visitor);
-        if(ActParsRepeatList!=null) ActParsRepeatList.accept(visitor);
+        if(ActParsList!=null) ActParsList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
-        if(ActParsRepeatList!=null) ActParsRepeatList.traverseTopDown(visitor);
+        if(ActParsList!=null) ActParsList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Expr!=null) Expr.traverseBottomUp(visitor);
-        if(ActParsRepeatList!=null) ActParsRepeatList.traverseBottomUp(visitor);
+        if(ActParsList!=null) ActParsList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -83,8 +83,8 @@ public class ActPars implements SyntaxNode {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ActParsRepeatList!=null)
-            buffer.append(ActParsRepeatList.toString("  "+tab));
+        if(ActParsList!=null)
+            buffer.append(ActParsList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -89,14 +89,15 @@ non terminal VarDecl, VarDeclList, VarIdent, VarIdentList, ArrayDecl;
 non terminal ClassDecl, ExtendsOpt, ConstructorDecl, ConstructorMethodDecl, ConstructorMethodDeclList;
 non terminal MethodDeclList, MethodDecl;
 non terminal ReturnType;
-non terminal FormPars, FormParsIdent;
+non terminal FormPars, FormParsIdent, FormParsIdentList, FormParsOptArgsList;
+non terminal OptArgs, OptArgsIdent, OptArgsIdentList;
 non terminal Type;
-non terminal Statement, SingleStatement, Statements, StatementList, DesignatorStatement;
+non terminal Statement, SingleStatement, Statements, StatementList, DesignatorStatement, ElseOpt;
 
 non terminal Expr, ExprOpt;
 non terminal Label;
 non terminal NumConstOpt;
-non terminal ActParsOpt, ActPars, ActParsRepeatList;
+non terminal ActParsOpt, ActPars, ActParsList;
 non terminal Condition, ConditionList, CondTerm, CondTermList, CondFact;
 
 non terminal Designator, DesignatorList, DesignatorFirst;
@@ -184,23 +185,31 @@ MethodDeclList ::= (MethodDeclListNext) MethodDeclList MethodDecl
 				 | (MethodDeclListEpsilon) /* epsilon */
 				 ;
 		 
-MethodDecl ::= (MethodDecl) ReturnType IDENT:methodName L_PARENTHESES FormPars R_PARENTHESES VarDeclList L_BRACES StatementList R_BRACES;
+MethodDecl ::= (MethodDecl) ReturnType IDENT:methodName L_PARENTHESES FormParsOptArgsList R_PARENTHESES VarDeclList L_BRACES StatementList R_BRACES;
 
 ReturnType ::= (ReturnTypeNonVoid) Type 
 			 | (ReturnTypeVoid) VOID
-			 ;
-           
-FormPars ::= (FormParsNoList) Type FormParsIdent
-		   | (FormParsWithList) FormPars COMMA Type FormParsIdent
-		   | (FormParsEpsilon) /* epsilon */
-		   ;
+			 ;	
+					  
+FormParsOptArgsList ::= (FormParsOptArgsListAll) FormPars COMMA OptArgs
+               		  | (FormParsOptArgsListFormPars) FormPars 
+               		  | (FormParsOptArgsListOptArgs) OptArgs 
+               		  | (FormParsOptArgsListEpsilon) /* epsilon */ 
+               		  ;
+				
+FormPars ::= (FormParsNext) FormPars COMMA Type FormParsIdent
+           | (FormParsFirst) Type FormParsIdent
+           ;
 
-FormParsIdent ::= (FormParsIdentifier) IDENT:formParName ArrayDecl
-		   	    | (FormParsIdentifierErrorRecovery) error {: System.err.println("Recovery error while defining form parameter."); :}
-           	    ;
+FormParsIdent ::= (FormParsIdentifier) IDENT:formParName ArrayDecl;           	    		   	   		 
+		   	   
+OptArgs ::= (OptArgsNext) OptArgs COMMA Type OptArgsIdent
+          | (OptArgsFirst) Type OptArgsIdent
+          ;
+
+OptArgsIdent ::= (OptArgsIdent) IDENT:optArgsName ASSIGNMENT ConstValue;
 
 Type ::= (Type) IDENT:typeName;
-
 
 
 // Statement declarations
@@ -210,9 +219,12 @@ Statement ::= (StatementLabel) Label COLON SingleStatement
             | (StatementStatements) Statements
             ;
             
+StatementList ::= (StatementListNext) StatementList Statement
+				| (StatementListEpsilon) /* epsilon */
+	  		    ;
+            
 SingleStatement ::= (SingleStatementDesignatorStatement) DesignatorStatement SEMICOLON
-            	  | (SingleStatementIfElse) IF L_PARENTHESES Condition R_PARENTHESES Statement ELSE Statement
-            	  | (SingleStatementIf) IF L_PARENTHESES Condition R_PARENTHESES Statement
+            	  | (SingleStatementIf) IF L_PARENTHESES Condition R_PARENTHESES Statement ElseOpt
             	  | (SingleStatementDoWhile) DO Statement WHILE L_PARENTHESES Condition R_PARENTHESES SEMICOLON
             	  | (SingleStatementBreak) BREAK SEMICOLON
             	  | (SingleStatementContinue) CONTINUE SEMICOLON
@@ -222,31 +234,31 @@ SingleStatement ::= (SingleStatementDesignatorStatement) DesignatorStatement SEM
             	  | (SingleStatementGoto) GOTO Label SEMICOLON
             	  ;
 
-Statements ::= (Statements) L_BRACES Statement R_BRACES;
-
-StatementList ::= (StatementListNext) StatementList Statement
-				| (StatementListEpsilon) /* epsilon */
-	  		    ;
+Statements ::= (Statements) L_BRACES StatementList R_BRACES;
 	  		    
+ElseOpt ::= (ElseOptNext) ELSE Statement
+		  | (ElseOptEpsilon) /* epsilon */
+		  ;	  		    
+	  		   
 NumConstOpt ::= (NumConstOptNext) COMMA NUM_CONST:numConst
            	  | (NumConstOptEpsilon) /*epsilon*/
            	  ;
      
-DesignatorStatement ::= (DesignatorStatementAssignop) Designator ASSIGNMENT Expr
+DesignatorStatement ::= (DesignatorStatementAssignop) Designator Assignop Expr
 					  | (DesignatorStatementActPars) Designator L_PARENTHESES ActParsOpt R_PARENTHESES
                       | (DesignatorStatementInc) Designator INCREMENT
                       | (DesignatorStatementDec) Designator DECREMENT
                       ; 	
                       
-ActPars ::= (ActPars) Expr ActParsRepeatList ;  
-                     
+ActPars ::= (ActPars) Expr ActParsList;                 
+
+ActParsList ::= (ActParsListNext) ActParsList COMMA Expr
+              | (ActParsListEpsilon) /* epsilon */
+              ;   
+              
 ActParsOpt ::= (ActParsOptNext) ActPars 
 			 | (ActParsOptEpsilon) /* epsilon */ 
-			 ; 
-
-ActParsRepeatList ::= (ActParsRepeatListNext) ActParsRepeatList COMMA Expr
-                    | (ActParsRepeatListEpsilon) /* epsilon */
-                    ;              
+			 ;            
           
 Condition ::= (Condition) CondTerm ConditionList;    
 
@@ -290,8 +302,8 @@ Factor ::= (FactorDesignatorActPars) Designator L_PARENTHESES ActParsOpt R_PAREN
 		 | (FactorExpr) L_PARENTHESES Expr R_PARENTHESES
 		 ;
 
-Designator ::= (DesignatorBegin) DesignatorFirst
-			 | (DesignatorEnd) Designator DesignatorList
+Designator ::= (DesignatorChain) Designator DesignatorList
+			 | (DesignatorBegin) DesignatorFirst
 			 ;
 
 DesignatorList ::= (DesignatorListField) DOT IDENT:fieldName

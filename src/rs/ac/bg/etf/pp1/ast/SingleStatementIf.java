@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/7/2022 21:10:5
+// 8/7/2022 23:26:43
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,12 +9,15 @@ public class SingleStatementIf extends SingleStatement {
 
     private Condition Condition;
     private Statement Statement;
+    private ElseOpt ElseOpt;
 
-    public SingleStatementIf (Condition Condition, Statement Statement) {
+    public SingleStatementIf (Condition Condition, Statement Statement, ElseOpt ElseOpt) {
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
+        this.ElseOpt=ElseOpt;
+        if(ElseOpt!=null) ElseOpt.setParent(this);
     }
 
     public Condition getCondition() {
@@ -33,6 +36,14 @@ public class SingleStatementIf extends SingleStatement {
         this.Statement=Statement;
     }
 
+    public ElseOpt getElseOpt() {
+        return ElseOpt;
+    }
+
+    public void setElseOpt(ElseOpt ElseOpt) {
+        this.ElseOpt=ElseOpt;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
@@ -40,17 +51,20 @@ public class SingleStatementIf extends SingleStatement {
     public void childrenAccept(Visitor visitor) {
         if(Condition!=null) Condition.accept(visitor);
         if(Statement!=null) Statement.accept(visitor);
+        if(ElseOpt!=null) ElseOpt.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Condition!=null) Condition.traverseTopDown(visitor);
         if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(ElseOpt!=null) ElseOpt.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Condition!=null) Condition.traverseBottomUp(visitor);
         if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(ElseOpt!=null) ElseOpt.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -67,6 +81,12 @@ public class SingleStatementIf extends SingleStatement {
 
         if(Statement!=null)
             buffer.append(Statement.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(ElseOpt!=null)
+            buffer.append(ElseOpt.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

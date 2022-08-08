@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/7/2022 21:10:5
+// 8/7/2022 23:26:43
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,19 +9,19 @@ public class Statements implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private Statement Statement;
+    private StatementList StatementList;
 
-    public Statements (Statement Statement) {
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+    public Statements (StatementList StatementList) {
+        this.StatementList=StatementList;
+        if(StatementList!=null) StatementList.setParent(this);
     }
 
-    public Statement getStatement() {
-        return Statement;
+    public StatementList getStatementList() {
+        return StatementList;
     }
 
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setStatementList(StatementList StatementList) {
+        this.StatementList=StatementList;
     }
 
     public SyntaxNode getParent() {
@@ -45,16 +45,16 @@ public class Statements implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Statement!=null) Statement.accept(visitor);
+        if(StatementList!=null) StatementList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(StatementList!=null) StatementList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(StatementList!=null) StatementList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -63,8 +63,8 @@ public class Statements implements SyntaxNode {
         buffer.append(tab);
         buffer.append("Statements(\n");
 
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(StatementList!=null)
+            buffer.append(StatementList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
