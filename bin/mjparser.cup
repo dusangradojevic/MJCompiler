@@ -61,7 +61,7 @@ scan with {:
 terminal PROGRAM, BREAK, CLASS, ENUM, ELSE, CONST, IF, DO, WHILE, NEW, PRINT, READ, RETURN, VOID, EXTENDS, CONTINUE, THIS, SUPER, GOTO, RECORD; 		
 
 // Identifier
-terminal IDENT; 			
+terminal String IDENT; 			
 
 // Constants
 terminal Integer NUM_CONST;
@@ -82,30 +82,33 @@ terminal L_PARENTHESES, R_PARENTHESES, L_BRACKETS, R_BRACKETS, L_BRACES, R_BRACE
 ************    Nonterminals    ************
 ********************************************/
 
-non terminal Program;
-non terminal ProgramDeclList;
-non terminal ConstDecl, ConstDefList, ConstDef, ConstValue;
-non terminal VarDecl, VarDeclList, VarIdent, VarIdentList, ArrayDecl;
-non terminal ClassDecl, ExtendsOpt, ConstructorDecl, ConstructorMethodDecl, ConstructorMethodDeclList;
-non terminal MethodDeclList, MethodDecl;
-non terminal ReturnType;
-non terminal FormPars, FormParsIdent, FormParsIdentList, FormParsOptArgsList;
-non terminal OptArgs, OptArgsIdent, OptArgsIdentList;
-non terminal Type;
-non terminal Statement, SingleStatement, Statements, StatementList, DesignatorStatement, ElseOpt;
+nonterminal Program, ProgramName, ProgramDeclList;
+nonterminal ConstDecl, ConstDefList, ConstDef, ConstValue;
+nonterminal VarDeclList, VarIdent, VarIdentList, ArrayOpt;
+nonterminal ClassDecl, ExtendsOpt, ConstructorDecl, ConstructorMethodDecl, ConstructorMethodDeclList;
+nonterminal MethodDeclList;
+nonterminal ReturnType;
+nonterminal FormPars, FormParsIdent, FormParsOptArgsList;
+nonterminal OptArgs, OptArgsIdent;
+nonterminal Type;
+nonterminal Statement, SingleStatement, Statements, StatementList, DesignatorStatement, ElseStart;
+nonterminal Label;
+nonterminal NumConstOpt;
+nonterminal Assignop, Relop, Addop, Mulop;
+nonterminal DoWhileBegin, DoWhileEnd, IfStart, ThenStart;
 
-non terminal Expr, ExprOpt;
-non terminal Label;
-non terminal NumConstOpt;
-non terminal ActParsOpt, ActPars, ActParsList;
-non terminal Condition, ConditionList, CondTerm, CondTermList, CondFact;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl, MethodName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorFirst, DesignatorList, DesignatorListItem;
 
-non terminal Designator, DesignatorList, DesignatorFirst;
-non terminal Assignop, Relop, Addop, Mulop;
-non terminal Factor;
-non terminal Term, MulopFactorList;
-non terminal AddopTermList;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, ExprOpt, MinusOpt;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, Term, AddopTermList, AddopTermListItem, MulopFactorList, MulopFactorListItem;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct ArrayExprOpt;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondTermList, CondTermListItem, CondFact, CondFactList, CondFactListItem, RelopExprOpt;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct ActParsListItem;
 
+nonterminal rs.ac.bg.etf.pp1.util.StructLinkedList ActParsOpt, ActPars, ActParsList;
+nonterminal rs.ac.bg.etf.pp1.util.StructLinkedList FuncCallOpt;
 
 
 /*******************************************
@@ -114,96 +117,98 @@ non terminal AddopTermList;
 
 precedence left ELSE;
 
-Program ::= (Program) PROGRAM IDENT:programName ProgramDeclList L_BRACES MethodDeclList R_BRACES;
+Program ::= (Program) PROGRAM ProgramName ProgramDeclList L_BRACES MethodDeclList R_BRACES;
+
+ProgramName ::= (ProgramName) IDENT:programName;
 
 ProgramDeclList ::= (ProgramDeclListConstDecl) ProgramDeclList ConstDecl
-				  | (ProgramDeclListVarDecl) ProgramDeclList VarDecl
+				  | (ProgramDeclListVarDecl)   ProgramDeclList VarDecl
 		  		  | (ProgramDeclListClassDecl) ProgramDeclList ClassDecl
-          		  | (ProgramDeclListEpsilon) /* epsilon */
+          		  | (ProgramDeclListEpsilon)   /* epsilon */
 				  ;
-
-
+				  
 
 // Const declarations
 
-ConstDecl ::= (ConstDeclaration) CONST Type ConstDef ConstDefList SEMICOLON;
+ConstDecl ::= (ConstDecl) CONST Type ConstDef ConstDefList SEMICOLON;
 
 ConstDef ::= (ConstDef) IDENT:constName ASSIGNMENT ConstValue;
 
-ConstDefList ::= (ConstDefListNext) ConstDefList COMMA ConstDef
+ConstDefList ::= (ConstDefListNext)    ConstDefList COMMA ConstDef
 			   | (ConstDefListEpsilon) /* epsilon */
 			   ;
 				
-ConstValue ::= (NumConst) NUM_CONST:numConst
+ConstValue ::= (NumConst)  NUM_CONST:numConst
 			 | (CharConst) CHAR_CONST:charConst
 			 | (BoolConst) BOOL_CONST:boolConst
-			 | error {: System.err.println("Recovery error while assigning"); :}
+			 | error 	   {: System.err.println("Recovery error while assigning"); :}
 			 ;
 
 
 // Var declarations
 
-VarDecl ::= (VarDeclaration) Type VarIdent VarIdentList SEMICOLON;
+VarDecl ::= (VarDecl) Type VarIdent VarIdentList SEMICOLON;
 
-VarIdent ::= (VarIdent) IDENT:varName ArrayDecl;
+VarIdent ::= (VarIdent) IDENT:varName ArrayOpt:isArray;
 
 VarIdentList ::= (VarIdentListDeclared) VarIdentList COMMA VarIdent
-               | (VarIdentListEpsilon) /* epsilon */
+               | (VarIdentListEpsilon) 	/* epsilon */
                ;
                
 VarDeclList ::= (VarDeclListDeclared) VarDeclList VarDecl
-              | (VarDeclListEpsilon) /* epsilon */
-              ;
-
-        
-ArrayDecl ::= (ArrayDeclaration) L_BRACKETS R_BRACKETS
-			| (ArrayDeclarationEpsilon) /* epsilon */
-			;        
+              | (VarDeclListEpsilon)  /* epsilon */
+              ;   
+              
+ArrayOpt ::= (ArrayOptNext)    L_BRACKETS R_BRACKETS
+		   | (ArrayOptEpsilon) /* epsilon */
+		   ;
                              
 
 // Class declarations
 
 ClassDecl ::= (ClassDecl) CLASS IDENT:className ExtendsOpt L_BRACES VarDeclList ConstructorMethodDecl R_BRACES;
 
-ExtendsOpt ::= (ExtendsOptNext) EXTENDS Type
+ExtendsOpt ::= (ExtendsOptNext)    EXTENDS Type
 			 | (ExtendsOptEpsilon) /* epsilon */
 			 ;
 			 
 ConstructorMethodDecl ::= (ConstructorMethodDeclNonEmpty) L_BRACES ConstructorMethodDeclList R_BRACES
-						| (ConstructorMethodDeclEmpty) L_BRACES R_BRACES
-        				| (ConstructorMethodDeclEpsilon) /* epsilon */
+						| (ConstructorMethodDeclEmpty) 	  L_BRACES R_BRACES
+        				| (ConstructorMethodDeclEpsilon)  /* epsilon */
         				;
 
-ConstructorMethodDeclList ::= (ConstructorMethodDeclListMultiple) ConstructorMethodDeclList MethodDecl
+ConstructorMethodDeclList ::= (ConstructorMethodDeclListMultiple) 	 ConstructorMethodDeclList MethodDecl
 							| (ConstructorMethodDeclListConstructor) ConstructorDecl
-							| (ConstructorMethodDeclListMethod) MethodDecl
+							| (ConstructorMethodDeclListMethod) 	 MethodDecl
 							;
         				
-ConstructorDecl ::= (ConstructorDeclaration) IDENT:constructorName L_PARENTHESES R_PARENTHESES VarDeclList L_BRACES StatementList R_BRACES;
+ConstructorDecl ::= (ConstructorDecl) IDENT:constructorName L_PARENTHESES R_PARENTHESES VarDeclList L_BRACES StatementList R_BRACES;
 
-MethodDeclList ::= (MethodDeclListNext) MethodDeclList MethodDecl
+MethodDeclList ::= (MethodDeclListNext)    MethodDeclList MethodDecl
 				 | (MethodDeclListEpsilon) /* epsilon */
 				 ;
 		 
-MethodDecl ::= (MethodDecl) ReturnType IDENT:methodName L_PARENTHESES FormParsOptArgsList R_PARENTHESES VarDeclList L_BRACES StatementList R_BRACES;
+MethodDecl ::= (MethodDecl) ReturnType MethodName L_PARENTHESES FormParsOptArgsList R_PARENTHESES VarDeclList L_BRACES StatementList R_BRACES;
+
+MethodName ::= (MethodName) IDENT:methodName;
 
 ReturnType ::= (ReturnTypeNonVoid) Type 
-			 | (ReturnTypeVoid) VOID
+			 | (ReturnTypeVoid)    VOID
 			 ;	
 					  
-FormParsOptArgsList ::= (FormParsOptArgsListAll) FormPars COMMA OptArgs
+FormParsOptArgsList ::= (FormParsOptArgsListAll) 	  FormPars COMMA OptArgs
                		  | (FormParsOptArgsListFormPars) FormPars 
-               		  | (FormParsOptArgsListOptArgs) OptArgs 
-               		  | (FormParsOptArgsListEpsilon) /* epsilon */ 
+               		  | (FormParsOptArgsListOptArgs)  OptArgs 
+               		  | (FormParsOptArgsListEpsilon)  /* epsilon */ 
                		  ;
 				
-FormPars ::= (FormParsNext) FormPars COMMA Type FormParsIdent
+FormPars ::= (FormParsNext)  FormPars COMMA Type FormParsIdent
            | (FormParsFirst) Type FormParsIdent
            ;
 
-FormParsIdent ::= (FormParsIdentifier) IDENT:formParName ArrayDecl;           	    		   	   		 
+FormParsIdent ::= (FormParsIdent) IDENT:formParName ArrayOpt:isArray;          	    		   	   		 
 		   	   
-OptArgs ::= (OptArgsNext) OptArgs COMMA Type OptArgsIdent
+OptArgs ::= (OptArgsNext)  OptArgs COMMA Type OptArgsIdent
           | (OptArgsFirst) Type OptArgsIdent
           ;
 
@@ -214,104 +219,133 @@ Type ::= (Type) IDENT:typeName;
 
 // Statement declarations
 
-Statement ::= (StatementLabel) Label COLON SingleStatement
+Statement ::= (StatementLabel) 			 Label COLON SingleStatement
             | (StatementSingleStatement) SingleStatement
-            | (StatementStatements) Statements
+            | (StatementStatements) 	 Statements
             ;
             
-StatementList ::= (StatementListNext) StatementList Statement
+StatementList ::= (StatementListNext) 	 StatementList Statement
 				| (StatementListEpsilon) /* epsilon */
 	  		    ;
             
 SingleStatement ::= (SingleStatementDesignatorStatement) DesignatorStatement SEMICOLON
-            	  | (SingleStatementIf) IF L_PARENTHESES Condition R_PARENTHESES Statement ElseOpt
-            	  | (SingleStatementDoWhile) DO Statement WHILE L_PARENTHESES Condition R_PARENTHESES SEMICOLON
-            	  | (SingleStatementBreak) BREAK SEMICOLON
-            	  | (SingleStatementContinue) CONTINUE SEMICOLON
-            	  | (SingleStatementReturn) RETURN ExprOpt SEMICOLON
-            	  | (SingleStatementRead) READ L_PARENTHESES Designator R_PARENTHESES SEMICOLON
-            	  | (SingleStatementPrint) PRINT L_PARENTHESES Expr NumConstOpt R_PARENTHESES SEMICOLON
-            	  | (SingleStatementGoto) GOTO Label SEMICOLON
+            	  | (SingleStatementIfElse) 			 IfStart L_PARENTHESES Condition ThenStart Statement ElseStart Statement
+            	  | (SingleStatementIf) 				 IfStart L_PARENTHESES Condition ThenStart Statement
+            	  | (SingleStatementDoWhile) 			 DoWhileBegin Statement DoWhileEnd L_PARENTHESES Condition R_PARENTHESES SEMICOLON
+            	  | (SingleStatementBreak) 				 BREAK SEMICOLON
+            	  | (SingleStatementContinue) 			 CONTINUE SEMICOLON
+            	  | (SingleStatementReturn) 			 RETURN ExprOpt SEMICOLON
+            	  | (SingleStatementRead) 				 READ L_PARENTHESES Designator R_PARENTHESES SEMICOLON
+            	  | (SingleStatementPrint) 				 PRINT L_PARENTHESES Expr NumConstOpt R_PARENTHESES SEMICOLON
+            	  | (SingleStatementGoto) 				 GOTO Label SEMICOLON
             	  ;
 
 Statements ::= (Statements) L_BRACES StatementList R_BRACES;
 	  		    
-ElseOpt ::= (ElseOptNext) ELSE Statement
-		  | (ElseOptEpsilon) /* epsilon */
-		  ;	  		    
+ElseStart ::= (ElseStart) ELSE;  		    
 	  		   
-NumConstOpt ::= (NumConstOptNext) COMMA NUM_CONST:numConst
+NumConstOpt ::= (NumConstOptNext) 	 COMMA NUM_CONST:numConst
            	  | (NumConstOptEpsilon) /*epsilon*/
            	  ;
      
 DesignatorStatement ::= (DesignatorStatementAssignop) Designator Assignop Expr
-					  | (DesignatorStatementActPars) Designator L_PARENTHESES ActParsOpt R_PARENTHESES
-                      | (DesignatorStatementInc) Designator INCREMENT
-                      | (DesignatorStatementDec) Designator DECREMENT
+					  | (DesignatorStatementActPars)  Designator L_PARENTHESES ActParsOpt R_PARENTHESES
+                      | (DesignatorStatementInc) 	  Designator INCREMENT
+                      | (DesignatorStatementDec) 	  Designator DECREMENT
                       ; 	
+                      
+IfStart ::= (IfStart) IF;
+
+ThenStart ::= (ThenStart) R_PARENTHESES;
+                      
+DoWhileBegin ::= (DoWhileBegin) DO;
+
+DoWhileEnd ::= (DoWhileEnd) WHILE;
                       
 ActPars ::= (ActPars) Expr ActParsList;                 
 
-ActParsList ::= (ActParsListNext) ActParsList COMMA Expr
+ActParsList ::= (ActParsListNext) 	 ActParsList ActParsListItem
               | (ActParsListEpsilon) /* epsilon */
               ;   
               
-ActParsOpt ::= (ActParsOptNext) ActPars 
+ActParsListItem ::= (ActParsListItem) COMMA Expr;
+              
+ActParsOpt ::= (ActParsOptNext)    ActPars 
 			 | (ActParsOptEpsilon) /* epsilon */ 
 			 ;            
           
-Condition ::= (Condition) CondTerm ConditionList;    
+Condition ::= (Condition) CondTerm CondTermList;    
 
-ConditionList ::= (ConditionListNext) ConditionList LOGICAL_OR CondTerm
-			    | (ConditionListEpsilon) /* epsilon */
-                ;
-                
-CondTerm ::= (CondTerm) CondFact CondTermList;
-
-CondTermList ::= (CondTermListNext) CondTermList LOGICAL_AND CondFact
+CondTermList ::= (CondTermListNext)    CondTermList CondTermListItem
 			   | (CondTermListEpsilon) /* epsilon */
+			   ;
+			   
+CondTermListItem ::= (CondTermListItem) LOGICAL_OR CondTerm;
+                
+CondTerm ::= (CondTerm) CondFact CondFactList;
+
+CondFactList ::= (CondFactListNext)    CondFactList CondFactListItem
+			   | (CondFactListEpsilon) /* epsilon */
                ;
                
-CondFact ::= (CondFactRelop) Expr Relop Expr
-		   | (CondFactNoRelop) Expr
-		   ;
+CondFactListItem ::= (CondFactListItem) LOGICAL_AND CondFact;
+               
+CondFact ::= (CondFact) Expr RelopExprOpt;
+		   
+RelopExprOpt ::= (RelopExprOptNext)    Relop Expr
+			   | (RelopExprOptEpsilon) /* epsilon */
+			   ;
                      
-Expr ::= (ExprMinus) SUBTRACTION Term AddopTermList
-	   | (ExprNoMinus) Term AddopTermList
-	   ;
+Expr ::= (Expr) MinusOpt Term AddopTermList;
 
-ExprOpt ::= (ExprOptNext) Expr
+ExprOpt ::= (ExprOptNext) 	 Expr
 		  | (ExprOptEpsilon) /* epsilon */
 		  ;
 		  
-AddopTermList ::= (AddopTermListNext) AddopTermList Addop Term
+MinusOpt ::= (MinusOptNext)    SUBTRACTION
+		   | (MinusOptEpsilon) /* epsilon */
+		   ;
+		  
+AddopTermList ::= (AddopTermListNext) 	 AddopTermList AddopTermListItem
                 | (AddopTermListEpsilon) /*epsilon*/
                 ;
+                
+AddopTermListItem ::= (AddopTermListItem) Addop Term;
 
 Term ::= (Term) Factor MulopFactorList;
 
-MulopFactorList ::= (MulopFactorListNext) MulopFactorList Mulop Factor
+MulopFactorList ::= (MulopFactorListNext) 	 MulopFactorList MulopFactorListItem
                   | (MulopFactorListEpsilon) /* epsilon */
                   ;
+                  
+MulopFactorListItem ::= (MulopFactorListItem) Mulop Factor;
 
-Factor ::= (FactorDesignatorActPars) Designator L_PARENTHESES ActParsOpt R_PARENTHESES
-		 | (FactorDesignatorNoActPars) Designator
-		 | (FactorConst) ConstValue
-		 | (FactorNewTypeExpr) NEW Type L_BRACKETS Expr R_BRACKETS
-		 | (FactorNewType) NEW Type
-		 | (FactorExpr) L_PARENTHESES Expr R_PARENTHESES
+Factor ::= (FactorDesignatorFuncCallOpt) Designator FuncCallOpt
+		 | (FactorConst) 			   	 ConstValue
+		 | (FactorNew) 	 				 NEW Type ArrayExprOpt
+		 | (FactorExpr) 			   	 L_PARENTHESES Expr R_PARENTHESES
 		 ;
+		 
+FuncCallOpt ::= (FuncCallOptNext) 	 L_PARENTHESES ActParsOpt R_PARENTHESES
+			  | (FuncCallOptEpsilon) /* epsilon */
+			  ;
+			  
+ArrayExprOpt ::= (ArrayExprOptNext)    L_BRACKETS Expr R_BRACKETS
+			   | (ArrayExprOptEpsilon) /* epsilon */
+			   ;
 
-Designator ::= (DesignatorChain) Designator DesignatorList
-			 | (DesignatorBegin) DesignatorFirst
-			 ;
+Designator ::= (Designator) DesignatorFirst DesignatorList;
+			 
+DesignatorList ::= (DesignatorListNext)    DesignatorList DesignatorListItem
+				 | (DesignatorListEpsilon) /* epsilon */
+				 ;
+				 
+DesignatorListItem ::= (DesignatorListItemIdent) DOT IDENT:designatorName
+				 	 | (DesignatorListItemArray) L_BRACKETS Expr R_BRACKETS
+				 	 ;
 
-DesignatorList ::= (DesignatorListField) DOT IDENT:fieldName
-			     | (DesignatorListExpr) L_BRACKETS Expr R_BRACKETS
-                 ;
-                 
 DesignatorFirst ::= (DesignatorFirstIdent) IDENT:designatorName
-				  | (DesignatorFirstThis) THIS 
+				  | (DesignatorFirstThis)  THIS 
 				  | (DesignatorFirstSuper) SUPER
 				  ;
 		
@@ -319,11 +353,11 @@ Label ::= (Label) IDENT:labelName;
 
 Assignop ::= (Assignop) ASSIGNMENT;
 
-Relop ::= (RelopEqualsTo) EQUALS_TO
+Relop ::= (RelopEqualsTo) 	 EQUALS_TO
 		| (RelopNotEqualsTo) NOT_EQUALS_TO
 		| (RelopGreaterThan) GREATER_THAN
-		| (RelopGrtOrEqual) GRT_OR_EQUAL
-		| (RelopLessThan) LESS_THAN
+		| (RelopGrtOrEqual)  GRT_OR_EQUAL
+		| (RelopLessThan) 	 LESS_THAN
 		| (RelopLessOrEqual) LESS_OR_EQUAL
 		;
 		
@@ -335,7 +369,3 @@ Mulop ::= (MulopMul) MULTIPLICATION
 		| (MulopDiv) DIVISION
 		| (MulopMod) MODULO
 		;
-
-
-
-

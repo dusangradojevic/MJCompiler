@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/7/2022 23:26:43
+// 19/7/2022 13:10:28
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,11 +9,21 @@ public class ConstDef implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
+    private String constName;
     private ConstValue ConstValue;
 
-    public ConstDef (ConstValue ConstValue) {
+    public ConstDef (String constName, ConstValue ConstValue) {
+        this.constName=constName;
         this.ConstValue=ConstValue;
         if(ConstValue!=null) ConstValue.setParent(this);
+    }
+
+    public String getConstName() {
+        return constName;
+    }
+
+    public void setConstName(String constName) {
+        this.constName=constName;
     }
 
     public ConstValue getConstValue() {
@@ -62,6 +72,9 @@ public class ConstDef implements SyntaxNode {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("ConstDef(\n");
+
+        buffer.append(" "+tab+constName);
+        buffer.append("\n");
 
         if(ConstValue!=null)
             buffer.append(ConstValue.toString("  "+tab));

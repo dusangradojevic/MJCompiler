@@ -1,0 +1,51 @@
+INFO  13:04:59,811 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  13:05:00,087 - #2 program
+INFO  13:05:00,087 - #22 test302
+INFO  13:05:00,087 - #7 const
+INFO  13:05:00,091 - #22 int
+INFO  13:05:00,091 - #22 jedan
+INFO  13:05:00,092 - #39 =
+INFO  13:05:00,092 - #23 1
+INFO  13:05:00,092 - #42 ;
+INFO  13:05:00,095 - #22 int
+INFO  13:05:00,096 - #22 i
+INFO  13:05:00,096 - #42 ;
+INFO  13:05:00,101 - #22 bool
+INFO  13:05:00,105 - #22 ibool
+INFO  13:05:00,106 - #42 ;
+INFO  13:05:00,106 - #22 int
+INFO  13:05:00,106 - #22 niz2
+INFO  13:05:00,106 - #42 ;
+INFO  13:05:00,106 - #22 int
+INFO  13:05:00,106 - #22 niz
+INFO  13:05:00,106 - #48 [
+INFO  13:05:00,107 - #49 ]
+INFO  13:05:00,107 - #42 ;
+INFO  13:05:00,109 - #22 int
+INFO  13:05:00,109 - #22 a
+INFO  13:05:00,109 - #42 ;
+INFO  13:05:00,109 - #50 {
+INFO  13:05:00,109 - #22 int
+INFO  13:05:00,111 - #22 sum
+INFO  13:05:00,111 - #46 (
+INFO  13:05:00,113 - #22 int
+INFO  13:05:00,113 - #22 z
+INFO  13:05:00,113 - #39 =
+INFO  13:05:00,113 - #23 1
+INFO  13:05:00,113 - #44 ,
+INFO  13:05:00,115 - #22 int
+INFO  13:05:00,116 - #22 d
+INFO  13:05:00,116 - #39 =
+INFO  13:05:00,116 - #23 2
+INFO  13:05:00,116 - #47 )
+INFO  13:05:00,116 - #50 {
+INFO  13:05:00,118 - #14 return
+INFO  13:05:00,122 - #22 z
+INFO  13:05:00,125 - #26 +
+INFO  13:05:00,135 - #22 d
+INFO  13:05:00,142 - #42 ;
+INFO  13:05:00,147 - #51 }
+INFO  13:05:00,147 - #51 }
+ERROR 13:05:00,163 - Symbol 'z' is not Class type. On line 19
+ERROR 13:05:00,165 - Symbol 'd' is not Class type. On line 19
+ERROR 13:05:00,167 - Main method not defined. On line 3

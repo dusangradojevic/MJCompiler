@@ -1,0 +1,961 @@
+INFO  12:46:45,051 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  12:46:45,192 - #2 program
+INFO  12:46:45,193 - #22 test_303
+INFO  12:46:45,193 - #7 const
+INFO  12:46:45,195 - #22 int
+INFO  12:46:45,195 - #22 cinilac
+INFO  12:46:45,196 - #39 =
+INFO  12:46:45,197 - #23 4
+INFO  12:46:45,197 - #44 ,
+INFO  12:46:45,199 - #22 delilac
+INFO  12:46:45,199 - #39 =
+INFO  12:46:45,200 - #23 3
+INFO  12:46:45,200 - #42 ;
+INFO  12:46:45,200 - #4 class
+INFO  12:46:45,201 - #22 Predmet
+INFO  12:46:45,201 - #50 {
+INFO  12:46:45,202 - #22 int
+INFO  12:46:45,203 - #22 tezina
+INFO  12:46:45,203 - #42 ;
+INFO  12:46:45,211 - #22 int
+INFO  12:46:45,213 - #22 koefTezine
+INFO  12:46:45,213 - #42 ;
+INFO  12:46:45,214 - #22 char
+INFO  12:46:45,214 - #22 vrsta
+INFO  12:46:45,214 - #42 ;
+INFO  12:46:45,214 - #50 {
+INFO  12:46:45,214 - #22 Predmet
+INFO  12:46:45,214 - #46 (
+INFO  12:46:45,214 - #47 )
+INFO  12:46:45,214 - #50 {
+INFO  12:46:45,214 - #22 koefTezine
+INFO  12:46:45,216 - #39 =
+INFO  12:46:45,219 - #23 1
+INFO  12:46:45,223 - #42 ;
+INFO  12:46:45,228 - #51 }
+INFO  12:46:45,228 - #15 void
+INFO  12:46:45,229 - #22 postaviTezinu
+INFO  12:46:45,230 - #46 (
+INFO  12:46:45,232 - #22 int
+INFO  12:46:45,232 - #22 tezina
+INFO  12:46:45,232 - #47 )
+INFO  12:46:45,233 - #50 {
+INFO  12:46:45,233 - #18 this
+INFO  12:46:45,234 - #45 .
+INFO  12:46:45,235 - #22 tezina
+INFO  12:46:45,235 - #39 =
+INFO  12:46:45,235 - #22 tezina
+INFO  12:46:45,235 - #28 *
+INFO  12:46:45,237 - #22 koefTezine
+INFO  12:46:45,240 - #42 ;
+INFO  12:46:45,243 - #51 }
+INFO  12:46:45,243 - #15 void
+INFO  12:46:45,245 - #22 ucitajTezinu
+INFO  12:46:45,245 - #46 (
+INFO  12:46:45,245 - #47 )
+INFO  12:46:45,246 - #50 {
+INFO  12:46:45,246 - #13 read
+INFO  12:46:45,246 - #46 (
+INFO  12:46:45,247 - #22 tezina
+INFO  12:46:45,247 - #47 )
+INFO  12:46:45,247 - #42 ;
+INFO  12:46:45,247 - #51 }
+INFO  12:46:45,247 - #22 int
+INFO  12:46:45,247 - #22 zapremina
+INFO  12:46:45,247 - #46 (
+INFO  12:46:45,248 - #47 )
+INFO  12:46:45,248 - #50 {
+INFO  12:46:45,248 - #14 return
+INFO  12:46:45,248 - #23 0
+INFO  12:46:45,248 - #42 ;
+INFO  12:46:45,248 - #51 }
+INFO  12:46:45,248 - #22 int
+INFO  12:46:45,248 - #22 Q
+INFO  12:46:45,248 - #46 (
+INFO  12:46:45,248 - #47 )
+INFO  12:46:45,248 - #50 {
+INFO  12:46:45,249 - #14 return
+INFO  12:46:45,249 - #22 zapremina
+INFO  12:46:45,249 - #46 (
+INFO  12:46:45,249 - #47 )
+INFO  12:46:45,250 - #28 *
+INFO  12:46:45,251 - #22 tezina
+INFO  12:46:45,251 - #42 ;
+INFO  12:46:45,251 - #51 }
+INFO  12:46:45,251 - #15 void
+INFO  12:46:45,251 - #22 postaviVrstu
+INFO  12:46:45,251 - #46 (
+INFO  12:46:45,251 - #22 char
+INFO  12:46:45,251 - #22 vrsta
+INFO  12:46:45,251 - #47 )
+INFO  12:46:45,251 - #50 {
+INFO  12:46:45,251 - #18 this
+INFO  12:46:45,251 - #45 .
+INFO  12:46:45,251 - #22 vrsta
+INFO  12:46:45,251 - #39 =
+INFO  12:46:45,251 - #22 vrsta
+INFO  12:46:45,252 - #42 ;
+INFO  12:46:45,252 - #51 }
+INFO  12:46:45,252 - #22 char
+INFO  12:46:45,252 - #22 dohvVrstu
+INFO  12:46:45,252 - #46 (
+INFO  12:46:45,252 - #47 )
+INFO  12:46:45,252 - #50 {
+INFO  12:46:45,252 - #14 return
+INFO  12:46:45,252 - #22 vrsta
+INFO  12:46:45,252 - #42 ;
+INFO  12:46:45,252 - #51 }
+INFO  12:46:45,252 - #22 int
+INFO  12:46:45,252 - #22 dohvTezinu
+INFO  12:46:45,252 - #46 (
+INFO  12:46:45,252 - #47 )
+INFO  12:46:45,252 - #50 {
+INFO  12:46:45,253 - #14 return
+INFO  12:46:45,253 - #22 tezina
+INFO  12:46:45,253 - #42 ;
+INFO  12:46:45,253 - #51 }
+INFO  12:46:45,253 - #15 void
+INFO  12:46:45,253 - #22 ispisi
+INFO  12:46:45,253 - #46 (
+INFO  12:46:45,253 - #47 )
+INFO  12:46:45,253 - #50 {
+INFO  12:46:45,253 - #12 print
+INFO  12:46:45,253 - #46 (
+INFO  12:46:45,253 - #22 vrsta
+INFO  12:46:45,253 - #47 )
+INFO  12:46:45,255 - #42 ;
+INFO  12:46:45,255 - #12 print
+INFO  12:46:45,255 - #46 (
+INFO  12:46:45,255 - #22 Q
+INFO  12:46:45,256 - #46 (
+INFO  12:46:45,256 - #47 )
+INFO  12:46:45,256 - #47 )
+INFO  12:46:45,256 - #42 ;
+INFO  12:46:45,256 - #51 }
+INFO  12:46:45,256 - #51 }
+INFO  12:46:45,256 - #51 }
+INFO  12:46:45,257 - #4 class
+INFO  12:46:45,258 - #22 Sfera
+INFO  12:46:45,259 - #16 extends
+INFO  12:46:45,259 - #22 Predmet
+INFO  12:46:45,259 - #50 {
+INFO  12:46:45,259 - #22 int
+INFO  12:46:45,259 - #22 r
+INFO  12:46:45,259 - #42 ;
+INFO  12:46:45,259 - #50 {
+INFO  12:46:45,259 - #22 Sfera
+INFO  12:46:45,259 - #46 (
+INFO  12:46:45,260 - #47 )
+INFO  12:46:45,260 - #50 {
+INFO  12:46:45,260 - #19 super
+INFO  12:46:45,260 - #46 (
+INFO  12:46:45,261 - #47 )
+INFO  12:46:45,262 - #42 ;
+INFO  12:46:45,262 - #22 vrsta
+INFO  12:46:45,262 - #39 =
+INFO  12:46:45,262 - #24 s
+INFO  12:46:45,262 - #42 ;
+INFO  12:46:45,262 - #51 }
+INFO  12:46:45,262 - #15 void
+INFO  12:46:45,262 - #22 postaviPoluprecnik
+INFO  12:46:45,263 - #46 (
+INFO  12:46:45,263 - #22 int
+INFO  12:46:45,263 - #22 r
+INFO  12:46:45,263 - #47 )
+INFO  12:46:45,263 - #50 {
+INFO  12:46:45,265 - #18 this
+INFO  12:46:45,265 - #45 .
+INFO  12:46:45,265 - #22 r
+INFO  12:46:45,265 - #39 =
+INFO  12:46:45,265 - #22 r
+INFO  12:46:45,265 - #42 ;
+INFO  12:46:45,266 - #51 }
+INFO  12:46:45,266 - #22 int
+INFO  12:46:45,266 - #22 zapremina
+INFO  12:46:45,266 - #46 (
+INFO  12:46:45,266 - #47 )
+INFO  12:46:45,266 - #22 int
+INFO  12:46:45,266 - #22 z
+INFO  12:46:45,266 - #42 ;
+INFO  12:46:45,266 - #50 {
+INFO  12:46:45,267 - #22 z
+INFO  12:46:45,267 - #39 =
+INFO  12:46:45,267 - #22 cinilac
+INFO  12:46:45,267 - #42 ;
+INFO  12:46:45,267 - #14 return
+INFO  12:46:45,267 - #22 z
+INFO  12:46:45,267 - #28 *
+INFO  12:46:45,267 - #46 (
+INFO  12:46:45,267 - #22 r
+INFO  12:46:45,267 - #29 /
+INFO  12:46:45,268 - #22 delilac
+INFO  12:46:45,269 - #47 )
+INFO  12:46:45,269 - #42 ;
+INFO  12:46:45,269 - #51 }
+INFO  12:46:45,270 - #15 void
+INFO  12:46:45,270 - #22 ispisi
+INFO  12:46:45,270 - #46 (
+INFO  12:46:45,270 - #47 )
+INFO  12:46:45,270 - #50 {
+INFO  12:46:45,270 - #19 super
+INFO  12:46:45,270 - #46 (
+INFO  12:46:45,270 - #47 )
+INFO  12:46:45,270 - #42 ;
+INFO  12:46:45,270 - #12 print
+INFO  12:46:45,270 - #46 (
+INFO  12:46:45,271 - #22 r
+INFO  12:46:45,271 - #47 )
+INFO  12:46:45,271 - #42 ;
+INFO  12:46:45,271 - #12 print
+INFO  12:46:45,271 - #46 (
+INFO  12:46:45,271 - #22 eol
+INFO  12:46:45,271 - #47 )
+INFO  12:46:45,271 - #42 ;
+INFO  12:46:45,271 - #51 }
+INFO  12:46:45,271 - #51 }
+INFO  12:46:45,272 - #51 }
+INFO  12:46:45,272 - #4 class
+INFO  12:46:45,272 - #22 Kvadar
+INFO  12:46:45,272 - #16 extends
+INFO  12:46:45,272 - #22 Predmet
+INFO  12:46:45,272 - #50 {
+INFO  12:46:45,272 - #22 int
+INFO  12:46:45,272 - #22 a
+INFO  12:46:45,272 - #44 ,
+INFO  12:46:45,272 - #22 b
+INFO  12:46:45,272 - #44 ,
+INFO  12:46:45,272 - #22 c
+INFO  12:46:45,273 - #42 ;
+INFO  12:46:45,273 - #50 {
+INFO  12:46:45,273 - #22 Kvadar
+INFO  12:46:45,273 - #46 (
+INFO  12:46:45,273 - #47 )
+INFO  12:46:45,273 - #50 {
+INFO  12:46:45,273 - #19 super
+INFO  12:46:45,273 - #46 (
+INFO  12:46:45,273 - #47 )
+INFO  12:46:45,273 - #42 ;
+INFO  12:46:45,273 - #22 vrsta
+INFO  12:46:45,273 - #39 =
+INFO  12:46:45,273 - #24 k
+INFO  12:46:45,273 - #42 ;
+INFO  12:46:45,273 - #51 }
+INFO  12:46:45,274 - #15 void
+INFO  12:46:45,274 - #22 postaviStranice
+INFO  12:46:45,274 - #46 (
+INFO  12:46:45,274 - #22 int
+INFO  12:46:45,274 - #22 a
+INFO  12:46:45,274 - #44 ,
+INFO  12:46:45,274 - #22 int
+INFO  12:46:45,274 - #22 b
+INFO  12:46:45,274 - #44 ,
+INFO  12:46:45,274 - #22 int
+INFO  12:46:45,275 - #22 c
+INFO  12:46:45,275 - #47 )
+INFO  12:46:45,275 - #50 {
+INFO  12:46:45,275 - #18 this
+INFO  12:46:45,275 - #45 .
+INFO  12:46:45,275 - #22 a
+INFO  12:46:45,275 - #39 =
+INFO  12:46:45,275 - #22 a
+INFO  12:46:45,280 - #42 ;
+INFO  12:46:45,281 - #18 this
+INFO  12:46:45,281 - #45 .
+INFO  12:46:45,281 - #22 b
+INFO  12:46:45,281 - #39 =
+INFO  12:46:45,281 - #22 b
+INFO  12:46:45,281 - #42 ;
+INFO  12:46:45,281 - #18 this
+INFO  12:46:45,281 - #45 .
+INFO  12:46:45,281 - #22 c
+INFO  12:46:45,281 - #39 =
+INFO  12:46:45,281 - #22 c
+INFO  12:46:45,282 - #42 ;
+INFO  12:46:45,282 - #51 }
+INFO  12:46:45,282 - #22 int
+INFO  12:46:45,282 - #22 zapremina
+INFO  12:46:45,282 - #46 (
+INFO  12:46:45,282 - #47 )
+INFO  12:46:45,282 - #22 int
+INFO  12:46:45,282 - #22 z
+INFO  12:46:45,282 - #42 ;
+INFO  12:46:45,282 - #50 {
+INFO  12:46:45,282 - #22 z
+INFO  12:46:45,282 - #39 =
+INFO  12:46:45,282 - #22 a
+INFO  12:46:45,283 - #28 *
+INFO  12:46:45,283 - #22 b
+INFO  12:46:45,283 - #28 *
+INFO  12:46:45,283 - #22 c
+INFO  12:46:45,283 - #42 ;
+INFO  12:46:45,283 - #14 return
+INFO  12:46:45,283 - #22 z
+INFO  12:46:45,283 - #42 ;
+INFO  12:46:45,283 - #51 }
+INFO  12:46:45,283 - #15 void
+INFO  12:46:45,283 - #22 ispisi
+INFO  12:46:45,283 - #46 (
+INFO  12:46:45,283 - #47 )
+INFO  12:46:45,283 - #50 {
+INFO  12:46:45,284 - #19 super
+INFO  12:46:45,284 - #46 (
+INFO  12:46:45,284 - #47 )
+INFO  12:46:45,284 - #42 ;
+INFO  12:46:45,284 - #12 print
+INFO  12:46:45,284 - #46 (
+INFO  12:46:45,284 - #22 a
+INFO  12:46:45,284 - #47 )
+INFO  12:46:45,284 - #42 ;
+INFO  12:46:45,284 - #12 print
+INFO  12:46:45,284 - #46 (
+INFO  12:46:45,284 - #22 b
+INFO  12:46:45,284 - #47 )
+INFO  12:46:45,284 - #42 ;
+INFO  12:46:45,285 - #12 print
+INFO  12:46:45,285 - #46 (
+INFO  12:46:45,285 - #22 c
+INFO  12:46:45,285 - #47 )
+INFO  12:46:45,285 - #42 ;
+INFO  12:46:45,285 - #12 print
+INFO  12:46:45,285 - #46 (
+INFO  12:46:45,285 - #22 eol
+INFO  12:46:45,285 - #47 )
+INFO  12:46:45,285 - #42 ;
+INFO  12:46:45,285 - #51 }
+INFO  12:46:45,285 - #51 }
+INFO  12:46:45,285 - #51 }
+INFO  12:46:45,285 - #22 int
+INFO  12:46:45,285 - #22 zapreminaK
+INFO  12:46:45,285 - #44 ,
+INFO  12:46:45,286 - #22 zapreminaS
+INFO  12:46:45,286 - #42 ;
+INFO  12:46:45,286 - #22 int
+INFO  12:46:45,286 - #22 tezinaK
+INFO  12:46:45,286 - #44 ,
+INFO  12:46:45,286 - #22 tezinaS
+INFO  12:46:45,286 - #42 ;
+INFO  12:46:45,286 - #50 {
+INFO  12:46:45,286 - #15 void
+INFO  12:46:45,288 - #22 ispis
+INFO  12:46:45,288 - #46 (
+INFO  12:46:45,288 - #22 Predmet
+INFO  12:46:45,288 - #22 p
+INFO  12:46:45,288 - #47 )
+INFO  12:46:45,288 - #50 {
+INFO  12:46:45,289 - #22 p
+INFO  12:46:45,289 - #45 .
+INFO  12:46:45,289 - #22 ispisi
+INFO  12:46:45,289 - #46 (
+INFO  12:46:45,289 - #47 )
+INFO  12:46:45,289 - #42 ;
+INFO  12:46:45,289 - #12 print
+INFO  12:46:45,289 - #46 (
+INFO  12:46:45,289 - #22 eol
+INFO  12:46:45,289 - #47 )
+INFO  12:46:45,289 - #42 ;
+INFO  12:46:45,289 - #12 print
+INFO  12:46:45,289 - #46 (
+INFO  12:46:45,290 - #22 p
+INFO  12:46:45,290 - #45 .
+INFO  12:46:45,290 - #22 dohvTezinu
+INFO  12:46:45,290 - #46 (
+INFO  12:46:45,290 - #47 )
+INFO  12:46:45,290 - #47 )
+INFO  12:46:45,290 - #42 ;
+INFO  12:46:45,290 - #51 }
+INFO  12:46:45,290 - #15 void
+INFO  12:46:45,290 - #22 main
+INFO  12:46:45,290 - #46 (
+INFO  12:46:45,291 - #47 )
+INFO  12:46:45,291 - #22 Predmet
+INFO  12:46:45,291 - #22 predmeti
+INFO  12:46:45,291 - #48 [
+INFO  12:46:45,291 - #49 ]
+INFO  12:46:45,291 - #42 ;
+INFO  12:46:45,292 - #22 int
+INFO  12:46:45,292 - #22 i
+INFO  12:46:45,292 - #42 ;
+INFO  12:46:45,292 - #22 Sfera
+INFO  12:46:45,292 - #22 s1
+INFO  12:46:45,292 - #44 ,
+INFO  12:46:45,292 - #22 s2
+INFO  12:46:45,292 - #44 ,
+INFO  12:46:45,292 - #22 s3
+INFO  12:46:45,293 - #42 ;
+INFO  12:46:45,293 - #22 Kvadar
+INFO  12:46:45,293 - #22 k1
+INFO  12:46:45,293 - #44 ,
+INFO  12:46:45,293 - #22 k2
+INFO  12:46:45,293 - #44 ,
+INFO  12:46:45,293 - #22 k3
+INFO  12:46:45,293 - #42 ;
+INFO  12:46:45,293 - #22 int
+INFO  12:46:45,293 - #22 t
+INFO  12:46:45,293 - #42 ;
+INFO  12:46:45,293 - #50 {
+INFO  12:46:45,293 - #22 predmeti
+INFO  12:46:45,293 - #39 =
+INFO  12:46:45,294 - #11 new
+INFO  12:46:45,294 - #22 Predmet
+INFO  12:46:45,294 - #48 [
+INFO  12:46:45,294 - #23 6
+INFO  12:46:45,294 - #49 ]
+INFO  12:46:45,294 - #42 ;
+INFO  12:46:45,294 - #22 s1
+INFO  12:46:45,294 - #39 =
+INFO  12:46:45,294 - #11 new
+INFO  12:46:45,294 - #22 Sfera
+INFO  12:46:45,294 - #42 ;
+INFO  12:46:45,296 - #22 s2
+INFO  12:46:45,296 - #39 =
+INFO  12:46:45,296 - #11 new
+INFO  12:46:45,296 - #22 Sfera
+INFO  12:46:45,296 - #42 ;
+INFO  12:46:45,296 - #22 s3
+INFO  12:46:45,296 - #39 =
+INFO  12:46:45,296 - #11 new
+INFO  12:46:45,296 - #22 Sfera
+INFO  12:46:45,296 - #42 ;
+INFO  12:46:45,296 - #22 k1
+INFO  12:46:45,296 - #39 =
+INFO  12:46:45,297 - #11 new
+INFO  12:46:45,297 - #22 Kvadar
+INFO  12:46:45,297 - #42 ;
+INFO  12:46:45,297 - #22 k2
+INFO  12:46:45,297 - #39 =
+INFO  12:46:45,297 - #11 new
+INFO  12:46:45,297 - #22 Kvadar
+INFO  12:46:45,298 - #42 ;
+INFO  12:46:45,298 - #22 k3
+INFO  12:46:45,298 - #39 =
+INFO  12:46:45,298 - #11 new
+INFO  12:46:45,298 - #22 Kvadar
+INFO  12:46:45,298 - #42 ;
+INFO  12:46:45,298 - #22 s1
+INFO  12:46:45,298 - #45 .
+INFO  12:46:45,298 - #22 postaviPoluprecnik
+INFO  12:46:45,298 - #46 (
+INFO  12:46:45,299 - #23 1
+INFO  12:46:45,299 - #47 )
+INFO  12:46:45,304 - #42 ;
+INFO  12:46:45,305 - #22 s2
+INFO  12:46:45,305 - #45 .
+INFO  12:46:45,305 - #22 postaviPoluprecnik
+INFO  12:46:45,305 - #46 (
+INFO  12:46:45,305 - #23 2
+INFO  12:46:45,305 - #47 )
+INFO  12:46:45,306 - #42 ;
+INFO  12:46:45,306 - #22 s3
+INFO  12:46:45,306 - #45 .
+INFO  12:46:45,306 - #22 postaviPoluprecnik
+INFO  12:46:45,306 - #46 (
+INFO  12:46:45,306 - #23 3
+INFO  12:46:45,306 - #47 )
+INFO  12:46:45,306 - #42 ;
+INFO  12:46:45,307 - #22 k1
+INFO  12:46:45,307 - #45 .
+INFO  12:46:45,307 - #22 postaviStranice
+INFO  12:46:45,307 - #46 (
+INFO  12:46:45,307 - #23 1
+INFO  12:46:45,307 - #44 ,
+INFO  12:46:45,307 - #23 2
+INFO  12:46:45,307 - #44 ,
+INFO  12:46:45,310 - #23 3
+INFO  12:46:45,311 - #47 )
+INFO  12:46:45,311 - #42 ;
+INFO  12:46:45,311 - #22 k2
+INFO  12:46:45,311 - #45 .
+INFO  12:46:45,311 - #22 postaviStranice
+INFO  12:46:45,311 - #46 (
+INFO  12:46:45,311 - #23 2
+INFO  12:46:45,311 - #44 ,
+INFO  12:46:45,311 - #23 3
+INFO  12:46:45,311 - #44 ,
+INFO  12:46:45,311 - #23 4
+INFO  12:46:45,311 - #47 )
+INFO  12:46:45,311 - #42 ;
+INFO  12:46:45,312 - #22 k3
+INFO  12:46:45,312 - #45 .
+INFO  12:46:45,312 - #22 postaviStranice
+INFO  12:46:45,312 - #46 (
+INFO  12:46:45,312 - #23 3
+INFO  12:46:45,312 - #44 ,
+INFO  12:46:45,312 - #23 4
+INFO  12:46:45,312 - #44 ,
+INFO  12:46:45,312 - #23 5
+INFO  12:46:45,312 - #47 )
+INFO  12:46:45,312 - #42 ;
+INFO  12:46:45,312 - #22 predmeti
+INFO  12:46:45,312 - #48 [
+INFO  12:46:45,312 - #23 0
+INFO  12:46:45,312 - #49 ]
+INFO  12:46:45,312 - #39 =
+INFO  12:46:45,313 - #22 s1
+INFO  12:46:45,313 - #42 ;
+INFO  12:46:45,313 - #22 predmeti
+INFO  12:46:45,313 - #48 [
+INFO  12:46:45,313 - #23 2
+INFO  12:46:45,313 - #49 ]
+INFO  12:46:45,313 - #39 =
+INFO  12:46:45,313 - #22 s2
+INFO  12:46:45,313 - #42 ;
+INFO  12:46:45,313 - #22 predmeti
+INFO  12:46:45,313 - #48 [
+INFO  12:46:45,313 - #23 4
+INFO  12:46:45,313 - #49 ]
+INFO  12:46:45,313 - #39 =
+INFO  12:46:45,313 - #22 s3
+INFO  12:46:45,313 - #42 ;
+INFO  12:46:45,314 - #22 predmeti
+INFO  12:46:45,314 - #48 [
+INFO  12:46:45,314 - #23 1
+INFO  12:46:45,314 - #49 ]
+INFO  12:46:45,314 - #39 =
+INFO  12:46:45,314 - #22 k1
+INFO  12:46:45,314 - #42 ;
+INFO  12:46:45,314 - #22 predmeti
+INFO  12:46:45,314 - #48 [
+INFO  12:46:45,314 - #23 3
+INFO  12:46:45,314 - #49 ]
+INFO  12:46:45,314 - #39 =
+INFO  12:46:45,314 - #22 k2
+INFO  12:46:45,314 - #42 ;
+INFO  12:46:45,315 - #22 predmeti
+INFO  12:46:45,315 - #48 [
+INFO  12:46:45,315 - #23 5
+INFO  12:46:45,315 - #49 ]
+INFO  12:46:45,315 - #39 =
+INFO  12:46:45,315 - #22 k3
+INFO  12:46:45,315 - #42 ;
+INFO  12:46:45,315 - #13 read
+INFO  12:46:45,315 - #46 (
+INFO  12:46:45,315 - #22 t
+INFO  12:46:45,315 - #47 )
+INFO  12:46:45,315 - #42 ;
+INFO  12:46:45,315 - #22 i
+INFO  12:46:45,315 - #39 =
+INFO  12:46:45,315 - #23 0
+INFO  12:46:45,315 - #42 ;
+INFO  12:46:45,315 - #9 do
+INFO  12:46:45,315 - #50 {
+INFO  12:46:45,318 - #22 predmeti
+INFO  12:46:45,318 - #48 [
+INFO  12:46:45,318 - #22 i
+INFO  12:46:45,318 - #49 ]
+INFO  12:46:45,318 - #45 .
+INFO  12:46:45,318 - #22 postaviTezinu
+INFO  12:46:45,318 - #46 (
+INFO  12:46:45,318 - #22 t
+INFO  12:46:45,318 - #47 )
+INFO  12:46:45,318 - #42 ;
+INFO  12:46:45,318 - #22 i
+INFO  12:46:45,318 - #40 ++
+INFO  12:46:45,318 - #42 ;
+INFO  12:46:45,319 - #51 }
+INFO  12:46:45,319 - #10 while
+INFO  12:46:45,321 - #46 (
+INFO  12:46:45,322 - #22 i
+INFO  12:46:45,323 - #35 <
+INFO  12:46:45,323 - #23 6
+INFO  12:46:45,328 - #47 )
+INFO  12:46:45,335 - #42 ;
+INFO  12:46:45,335 - #22 zapreminaS
+INFO  12:46:45,335 - #39 =
+INFO  12:46:45,335 - #23 0
+INFO  12:46:45,335 - #42 ;
+INFO  12:46:45,335 - #22 tezinaS
+INFO  12:46:45,335 - #39 =
+INFO  12:46:45,335 - #23 0
+INFO  12:46:45,335 - #42 ;
+INFO  12:46:45,335 - #22 i
+INFO  12:46:45,335 - #39 =
+INFO  12:46:45,335 - #23 1
+INFO  12:46:45,335 - #42 ;
+INFO  12:46:45,336 - #9 do
+INFO  12:46:45,336 - #50 {
+INFO  12:46:45,336 - #8 if
+INFO  12:46:45,336 - #46 (
+INFO  12:46:45,338 - #22 i
+INFO  12:46:45,338 - #30 %
+INFO  12:46:45,338 - #23 2
+INFO  12:46:45,339 - #31 ==
+INFO  12:46:45,339 - #23 0
+INFO  12:46:45,341 - #47 )
+INFO  12:46:45,341 - #50 {
+INFO  12:46:45,344 - #22 i
+INFO  12:46:45,344 - #40 ++
+INFO  12:46:45,344 - #42 ;
+INFO  12:46:45,344 - #17 continue
+INFO  12:46:45,344 - #42 ;
+INFO  12:46:45,344 - #51 }
+INFO  12:46:45,346 - #22 zapreminaS
+INFO  12:46:45,346 - #39 =
+INFO  12:46:45,346 - #22 zapreminaS
+INFO  12:46:45,346 - #26 +
+INFO  12:46:45,346 - #22 predmeti
+INFO  12:46:45,349 - #48 [
+INFO  12:46:45,349 - #22 i
+INFO  12:46:45,349 - #27 -
+INFO  12:46:45,349 - #23 1
+INFO  12:46:45,351 - #49 ]
+INFO  12:46:45,353 - #45 .
+INFO  12:46:45,353 - #22 zapremina
+INFO  12:46:45,353 - #46 (
+INFO  12:46:45,353 - #47 )
+INFO  12:46:45,353 - #42 ;
+INFO  12:46:45,353 - #22 tezinaS
+INFO  12:46:45,353 - #39 =
+INFO  12:46:45,353 - #22 tezinaS
+INFO  12:46:45,353 - #26 +
+INFO  12:46:45,353 - #22 predmeti
+INFO  12:46:45,353 - #48 [
+INFO  12:46:45,353 - #22 i
+INFO  12:46:45,353 - #27 -
+INFO  12:46:45,353 - #23 1
+INFO  12:46:45,353 - #49 ]
+INFO  12:46:45,353 - #45 .
+INFO  12:46:45,353 - #22 Q
+INFO  12:46:45,353 - #46 (
+INFO  12:46:45,353 - #47 )
+INFO  12:46:45,353 - #42 ;
+INFO  12:46:45,353 - #22 ispis
+INFO  12:46:45,354 - #46 (
+INFO  12:46:45,354 - #22 predmeti
+INFO  12:46:45,354 - #48 [
+INFO  12:46:45,354 - #22 i
+INFO  12:46:45,354 - #27 -
+INFO  12:46:45,354 - #23 1
+INFO  12:46:45,354 - #49 ]
+INFO  12:46:45,354 - #47 )
+INFO  12:46:45,354 - #42 ;
+INFO  12:46:45,354 - #22 i
+INFO  12:46:45,354 - #40 ++
+INFO  12:46:45,354 - #42 ;
+INFO  12:46:45,354 - #51 }
+INFO  12:46:45,354 - #10 while
+INFO  12:46:45,354 - #46 (
+INFO  12:46:45,354 - #22 i
+INFO  12:46:45,354 - #36 <=
+INFO  12:46:45,354 - #23 6
+INFO  12:46:45,356 - #47 )
+INFO  12:46:45,356 - #42 ;
+INFO  12:46:45,357 - #22 zapreminaK
+INFO  12:46:45,357 - #39 =
+INFO  12:46:45,357 - #23 0
+INFO  12:46:45,357 - #42 ;
+INFO  12:46:45,357 - #22 tezinaK
+INFO  12:46:45,357 - #39 =
+INFO  12:46:45,357 - #23 0
+INFO  12:46:45,357 - #42 ;
+INFO  12:46:45,357 - #22 i
+INFO  12:46:45,357 - #39 =
+INFO  12:46:45,357 - #23 1
+INFO  12:46:45,357 - #42 ;
+INFO  12:46:45,357 - #9 do
+INFO  12:46:45,357 - #50 {
+INFO  12:46:45,357 - #8 if
+INFO  12:46:45,358 - #46 (
+INFO  12:46:45,358 - #22 i
+INFO  12:46:45,358 - #30 %
+INFO  12:46:45,358 - #23 2
+INFO  12:46:45,358 - #31 ==
+INFO  12:46:45,358 - #23 1
+INFO  12:46:45,358 - #47 )
+INFO  12:46:45,358 - #50 {
+INFO  12:46:45,358 - #22 i
+INFO  12:46:45,358 - #40 ++
+INFO  12:46:45,358 - #42 ;
+INFO  12:46:45,358 - #17 continue
+INFO  12:46:45,358 - #42 ;
+INFO  12:46:45,358 - #51 }
+INFO  12:46:45,358 - #22 zapreminaS
+INFO  12:46:45,358 - #39 =
+INFO  12:46:45,358 - #22 zapreminaS
+INFO  12:46:45,358 - #26 +
+INFO  12:46:45,359 - #22 predmeti
+INFO  12:46:45,359 - #48 [
+INFO  12:46:45,359 - #22 i
+INFO  12:46:45,359 - #27 -
+INFO  12:46:45,359 - #23 1
+INFO  12:46:45,359 - #49 ]
+INFO  12:46:45,359 - #45 .
+INFO  12:46:45,359 - #22 zapremina
+INFO  12:46:45,359 - #46 (
+INFO  12:46:45,359 - #47 )
+INFO  12:46:45,359 - #42 ;
+INFO  12:46:45,359 - #22 tezinaS
+INFO  12:46:45,359 - #39 =
+INFO  12:46:45,359 - #22 tezinaS
+INFO  12:46:45,359 - #26 +
+INFO  12:46:45,359 - #22 predmeti
+INFO  12:46:45,359 - #48 [
+INFO  12:46:45,359 - #22 i
+INFO  12:46:45,359 - #27 -
+INFO  12:46:45,360 - #23 1
+INFO  12:46:45,360 - #49 ]
+INFO  12:46:45,360 - #45 .
+INFO  12:46:45,360 - #22 Q
+INFO  12:46:45,360 - #46 (
+INFO  12:46:45,360 - #47 )
+INFO  12:46:45,360 - #42 ;
+INFO  12:46:45,360 - #22 ispis
+INFO  12:46:45,360 - #46 (
+INFO  12:46:45,360 - #22 predmeti
+INFO  12:46:45,360 - #48 [
+INFO  12:46:45,360 - #22 i
+INFO  12:46:45,360 - #27 -
+INFO  12:46:45,360 - #23 1
+INFO  12:46:45,360 - #49 ]
+INFO  12:46:45,360 - #47 )
+INFO  12:46:45,360 - #42 ;
+INFO  12:46:45,360 - #22 i
+INFO  12:46:45,360 - #40 ++
+INFO  12:46:45,361 - #42 ;
+INFO  12:46:45,361 - #51 }
+INFO  12:46:45,361 - #10 while
+INFO  12:46:45,361 - #46 (
+INFO  12:46:45,361 - #22 i
+INFO  12:46:45,361 - #36 <=
+INFO  12:46:45,361 - #23 6
+INFO  12:46:45,361 - #47 )
+INFO  12:46:45,361 - #42 ;
+INFO  12:46:45,361 - #12 print
+INFO  12:46:45,361 - #46 (
+INFO  12:46:45,361 - #22 zapreminaS
+INFO  12:46:45,361 - #47 )
+INFO  12:46:45,361 - #42 ;
+INFO  12:46:45,361 - #12 print
+INFO  12:46:45,361 - #46 (
+INFO  12:46:45,361 - #22 eol
+INFO  12:46:45,361 - #47 )
+INFO  12:46:45,361 - #42 ;
+INFO  12:46:45,361 - #12 print
+INFO  12:46:45,361 - #46 (
+INFO  12:46:45,361 - #22 zapreminaK
+INFO  12:46:45,361 - #47 )
+INFO  12:46:45,361 - #42 ;
+INFO  12:46:45,361 - #12 print
+INFO  12:46:45,361 - #46 (
+INFO  12:46:45,361 - #22 eol
+INFO  12:46:45,361 - #47 )
+INFO  12:46:45,361 - #42 ;
+INFO  12:46:45,361 - #12 print
+INFO  12:46:45,361 - #46 (
+INFO  12:46:45,361 - #22 tezinaS
+INFO  12:46:45,361 - #47 )
+INFO  12:46:45,361 - #42 ;
+INFO  12:46:45,362 - #12 print
+INFO  12:46:45,362 - #46 (
+INFO  12:46:45,362 - #22 eol
+INFO  12:46:45,362 - #47 )
+INFO  12:46:45,362 - #42 ;
+INFO  12:46:45,362 - #12 print
+INFO  12:46:45,362 - #46 (
+INFO  12:46:45,362 - #22 tezinaK
+INFO  12:46:45,362 - #47 )
+INFO  12:46:45,362 - #42 ;
+INFO  12:46:45,362 - #12 print
+INFO  12:46:45,362 - #46 (
+INFO  12:46:45,362 - #22 eol
+INFO  12:46:45,362 - #47 )
+INFO  12:46:45,362 - #42 ;
+INFO  12:46:45,362 - #51 }
+INFO  12:46:45,362 - #51 }
+ERROR 12:46:45,374 - Symbol 'koefTezine' is not Class type. na liniji 15
+ERROR 12:46:45,375 - Symbol 'koefTezine' is not Class type. na liniji 35
+ERROR 12:46:45,375 - Symbol 'tezina' is not Class type. na liniji 17
+ERROR 12:46:45,378 - Symbol 'koefTezine' is not Class type. na liniji 17
+ERROR 12:46:45,378 - Type 'Int' not assignable to type 'None'. na liniji 17
+ERROR 12:46:45,378 - Symbol 'tezina' is not Class type. na liniji 18
+ERROR 12:46:45,379 - Symbol 'zapremina' is not Class type. na liniji 20
+ERROR 12:46:45,379 - Symbol 'tezina' is not Class type. na liniji 20
+ERROR 12:46:45,379 - Symbol 'tezina' is not Class type. na liniji 34
+ERROR 12:46:45,379 - Symbol 'vrsta' is not Class type. na liniji 21
+ERROR 12:46:45,379 - Type 'Char' not assignable to type 'None'. na liniji 21
+ERROR 12:46:45,379 - Symbol 'vrsta' is not Class type. na liniji 22
+ERROR 12:46:45,379 - Symbol 'tezina' is not Class type. na liniji 23
+ERROR 12:46:45,379 - Symbol 'vrsta' is not Class type. na liniji 25
+ERROR 12:46:45,379 - Symbol 'Q' is not Class type. na liniji 26
+ERROR 12:46:45,379 - Type 'Predmet' not found in symbol table. na liniji 31
+ERROR 12:46:45,379 - Symbol 'vrsta' is not Class type. na liniji 37
+ERROR 12:46:45,380 - Symbol 'vrsta' is not Class type. na liniji 35
+ERROR 12:46:45,380 - Symbol 'r' is not Class type. na liniji 40
+ERROR 12:46:45,380 - Type 'Int' not assignable to type 'None'. na liniji 40
+ERROR 12:46:45,380 - Method name 'zapremina' already defined. na liniji 42
+ERROR 12:46:45,380 - Symbol 'z' is not Class type. na liniji 45
+ERROR 12:46:45,380 - Symbol 'cinilac' is not Class type. na liniji 45
+ERROR 12:46:45,380 - Symbol 'z' is not Class type. na liniji 46
+ERROR 12:46:45,380 - Symbol 'r' is not Class type. na liniji 46
+ERROR 12:46:45,380 - Symbol 'delilac' is not Class type. na liniji 46
+ERROR 12:46:45,380 - Method name 'ispisi' already defined. na liniji 49
+ERROR 12:46:45,380 - Symbol 'delilac' is not a method. na liniji 50
+ERROR 12:46:45,380 - Symbol 'r' is not Class type. na liniji 51
+ERROR 12:46:45,380 - Symbol 'eol' is not Class type. na liniji 52
+ERROR 12:46:45,380 - Type 'Predmet' not found in symbol table. na liniji 57
+ERROR 12:46:45,380 - Symbol 'eol' is not a method. na liniji 62
+ERROR 12:46:45,380 - Symbol 'vrsta' is not Class type. na liniji 63
+ERROR 12:46:45,380 - Symbol 'vrsta' is not Class type. na liniji 46
+ERROR 12:46:45,380 - Symbol 'a' is not Class type. na liniji 66
+ERROR 12:46:45,380 - Type 'Int' not assignable to type 'None'. na liniji 66
+ERROR 12:46:45,380 - Symbol 'a' is not Class type. na liniji 58
+ERROR 12:46:45,381 - Symbol 'b' is not Class type. na liniji 66
+ERROR 12:46:45,381 - Type 'Int' not assignable to type 'None'. na liniji 66
+ERROR 12:46:45,381 - Symbol 'b' is not Class type. na liniji 70
+ERROR 12:46:45,381 - Symbol 'c' is not Class type. na liniji 66
+ERROR 12:46:45,381 - Type 'Int' not assignable to type 'None'. na liniji 66
+ERROR 12:46:45,381 - Method name 'zapremina' already defined. na liniji 67
+ERROR 12:46:45,381 - Symbol 'z' is not Class type. na liniji 70
+ERROR 12:46:45,381 - Symbol 'a' is not Class type. na liniji 70
+ERROR 12:46:45,381 - Symbol 'b' is not Class type. na liniji 70
+ERROR 12:46:45,381 - Symbol 'c' is not Class type. na liniji 70
+ERROR 12:46:45,381 - Symbol 'z' is not Class type. na liniji 71
+ERROR 12:46:45,381 - Method name 'ispisi' already defined. na liniji 73
+ERROR 12:46:45,381 - Symbol 'z' is not a method. na liniji 74
+ERROR 12:46:45,381 - Number of parameters in function call must be the same as in function definition. na liniji 74
+ERROR 12:46:45,381 - Symbol 'a' is not Class type. na liniji 75
+ERROR 12:46:45,381 - Symbol 'b' is not Class type. na liniji 76
+ERROR 12:46:45,381 - Symbol 'c' is not Class type. na liniji 77
+ERROR 12:46:45,381 - Symbol 'eol' is not Class type. na liniji 78
+ERROR 12:46:45,382 - Type 'Predmet' not found in symbol table. na liniji 87
+ERROR 12:46:45,382 - Symbol 'p' is not Class type. na liniji 89
+ERROR 12:46:45,382 - Symbol 'p' is not Class type. na liniji 2
+ERROR 12:46:45,382 - Symbol 'noObj' is not a method. na liniji 89
+ERROR 12:46:45,382 - Number of parameters in function call must be the same as in function definition. na liniji 89
+ERROR 12:46:45,382 - Symbol 'eol' is not Class type. na liniji 90
+ERROR 12:46:45,382 - Symbol 'p' is not Class type. na liniji 91
+ERROR 12:46:45,382 - Symbol 'p' is not Class type. na liniji 8
+ERROR 12:46:45,382 - Expected type is Meth instead of 'Int'. na liniji 91
+ERROR 12:46:45,382 - Parameter type should be Int, Char or Bool. na liniji 7
+ERROR 12:46:45,382 - Type 'Predmet' not found in symbol table. na liniji 94
+ERROR 12:46:45,382 - Type 'Sfera' not found in symbol table. na liniji 94
+ERROR 12:46:45,382 - Type 'Kvadar' not found in symbol table. na liniji 94
+ERROR 12:46:45,382 - Symbol 'predmeti' is not Class type. na liniji 96
+ERROR 12:46:45,382 - Type 'Predmet' not found in symbol table. na liniji 96
+ERROR 12:46:45,382 - New expects inner class. na liniji 96
+ERROR 12:46:45,382 - Type 'Int' not assignable to type 'Array'. na liniji 96
+ERROR 12:46:45,382 - Symbol 's1' is not Class type. na liniji 97
+ERROR 12:46:45,382 - Type 'Sfera' not found in symbol table. na liniji 97
+ERROR 12:46:45,383 - New expects inner class. na liniji 97
+ERROR 12:46:45,383 - Type 'Int' not assignable to type 'None'. na liniji 97
+ERROR 12:46:45,383 - Symbol 's2' is not Class type. na liniji 98
+ERROR 12:46:45,383 - Type 'Sfera' not found in symbol table. na liniji 98
+ERROR 12:46:45,383 - New expects inner class. na liniji 98
+ERROR 12:46:45,383 - Type 'Int' not assignable to type 'None'. na liniji 98
+ERROR 12:46:45,383 - Symbol 's3' is not Class type. na liniji 99
+ERROR 12:46:45,383 - Type 'Sfera' not found in symbol table. na liniji 99
+ERROR 12:46:45,383 - New expects inner class. na liniji 99
+ERROR 12:46:45,383 - Type 'Int' not assignable to type 'None'. na liniji 99
+ERROR 12:46:45,383 - Symbol 'k1' is not Class type. na liniji 101
+ERROR 12:46:45,383 - Type 'Kvadar' not found in symbol table. na liniji 101
+ERROR 12:46:45,383 - New expects inner class. na liniji 101
+ERROR 12:46:45,383 - Type 'Int' not assignable to type 'None'. na liniji 101
+ERROR 12:46:45,383 - Symbol 'k2' is not Class type. na liniji 102
+ERROR 12:46:45,383 - Type 'Kvadar' not found in symbol table. na liniji 102
+ERROR 12:46:45,383 - New expects inner class. na liniji 102
+ERROR 12:46:45,383 - Type 'Int' not assignable to type 'None'. na liniji 102
+ERROR 12:46:45,383 - Symbol 'k3' is not Class type. na liniji 103
+ERROR 12:46:45,383 - Type 'Kvadar' not found in symbol table. na liniji 103
+ERROR 12:46:45,383 - New expects inner class. na liniji 103
+ERROR 12:46:45,383 - Type 'Int' not assignable to type 'None'. na liniji 103
+ERROR 12:46:45,383 - Symbol 's1' is not Class type. na liniji 105
+ERROR 12:46:45,383 - Symbol 's1' is not Class type. na liniji 2
+ERROR 12:46:45,384 - Symbol 'noObj' is not a method. na liniji 105
+ERROR 12:46:45,384 - Number of parameters in function call must be the same as in function definition. na liniji 105
+ERROR 12:46:45,384 - Symbol 's2' is not Class type. na liniji 106
+ERROR 12:46:45,384 - Symbol 's2' is not Class type. na liniji 2
+ERROR 12:46:45,384 - Symbol 'noObj' is not a method. na liniji 106
+ERROR 12:46:45,384 - Number of parameters in function call must be the same as in function definition. na liniji 106
+ERROR 12:46:45,384 - Symbol 's3' is not Class type. na liniji 107
+ERROR 12:46:45,384 - Symbol 's3' is not Class type. na liniji 2
+ERROR 12:46:45,384 - Symbol 'noObj' is not a method. na liniji 107
+ERROR 12:46:45,384 - Number of parameters in function call must be the same as in function definition. na liniji 107
+ERROR 12:46:45,384 - Symbol 'k1' is not Class type. na liniji 110
+ERROR 12:46:45,384 - Symbol 'k1' is not Class type. na liniji 2
+ERROR 12:46:45,384 - Symbol 'noObj' is not a method. na liniji 110
+ERROR 12:46:45,384 - Number of parameters in function call must be the same as in function definition. na liniji 110
+ERROR 12:46:45,384 - Symbol 'k2' is not Class type. na liniji 111
+ERROR 12:46:45,384 - Symbol 'k2' is not Class type. na liniji 2
+ERROR 12:46:45,384 - Symbol 'noObj' is not a method. na liniji 111
+ERROR 12:46:45,384 - Number of parameters in function call must be the same as in function definition. na liniji 111
+ERROR 12:46:45,384 - Symbol 'k3' is not Class type. na liniji 112
+ERROR 12:46:45,384 - Symbol 'k3' is not Class type. na liniji 2
+ERROR 12:46:45,385 - Symbol 'noObj' is not a method. na liniji 112
+ERROR 12:46:45,385 - Number of parameters in function call must be the same as in function definition. na liniji 112
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 114
+ERROR 12:46:45,385 - Symbol 's1' is not Class type. na liniji 114
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 115
+ERROR 12:46:45,385 - Symbol 's2' is not Class type. na liniji 115
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 116
+ERROR 12:46:45,385 - Symbol 's3' is not Class type. na liniji 116
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 117
+ERROR 12:46:45,385 - Symbol 'k1' is not Class type. na liniji 117
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 118
+ERROR 12:46:45,385 - Symbol 'k2' is not Class type. na liniji 118
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 119
+ERROR 12:46:45,385 - Symbol 'k3' is not Class type. na liniji 119
+ERROR 12:46:45,385 - Symbol 't' is not Class type. na liniji 121
+ERROR 12:46:45,385 - Symbol 'i' is not Class type. na liniji 122
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 124
+ERROR 12:46:45,385 - Symbol 'i' is not Class type. na liniji 124
+ERROR 12:46:45,385 - Symbol 'predmeti' is not Class type. na liniji 3
+ERROR 12:46:45,386 - Symbol 't' is not Class type. na liniji 124
+ERROR 12:46:45,386 - Symbol 'noObj' is not a method. na liniji 124
+ERROR 12:46:45,386 - Number of parameters in function call must be the same as in function definition. na liniji 124
+ERROR 12:46:45,386 - Symbol 'i' is not Class type. na liniji 125
+ERROR 12:46:45,386 - Symbol 'i' is not Class type. na liniji 126
+ERROR 12:46:45,386 - Symbol 'zapreminaS' is not Class type. na liniji 128
+ERROR 12:46:45,386 - Symbol 'tezinaS' is not Class type. na liniji 129
+ERROR 12:46:45,386 - Symbol 'i' is not Class type. na liniji 130
+ERROR 12:46:45,386 - Symbol 'i' is not Class type. na liniji 132
+ERROR 12:46:45,386 - Symbol 'i' is not Class type. na liniji 133
+ERROR 12:46:45,386 - Symbol 'zapreminaS' is not Class type. na liniji 136
+ERROR 12:46:45,386 - Symbol 'zapreminaS' is not Class type. na liniji 136
+ERROR 12:46:45,386 - Symbol 'predmeti' is not Class type. na liniji 136
+ERROR 12:46:45,386 - Symbol 'i' is not Class type. na liniji 136
+ERROR 12:46:45,386 - Symbol 'predmeti' is not Class type. na liniji 29
+ERROR 12:46:45,386 - Expected type is Meth instead of 'Int'. na liniji 136
+ERROR 12:46:45,386 - Arithmetic expressions require both operands to be of type Int na liniji 136
+ERROR 12:46:45,386 - Symbol 'tezinaS' is not Class type. na liniji 137
+ERROR 12:46:45,387 - Symbol 'tezinaS' is not Class type. na liniji 137
+ERROR 12:46:45,387 - Symbol 'predmeti' is not Class type. na liniji 137
+ERROR 12:46:45,387 - Symbol 'i' is not Class type. na liniji 137
+ERROR 12:46:45,387 - Symbol 'predmeti' is not Class type. na liniji 23
+ERROR 12:46:45,387 - Expected type is Meth instead of 'Int'. na liniji 137
+ERROR 12:46:45,387 - Arithmetic expressions require both operands to be of type Int na liniji 137
+ERROR 12:46:45,387 - Symbol 'ispis' is not Class type. na liniji 138
+ERROR 12:46:45,387 - Symbol 'predmeti' is not Class type. na liniji 138
+ERROR 12:46:45,387 - Symbol 'i' is not Class type. na liniji 138
+ERROR 12:46:45,387 - Symbol 'i' is not Class type. na liniji 139
+ERROR 12:46:45,387 - Symbol 'i' is not Class type. na liniji 140
+ERROR 12:46:45,387 - Symbol 'zapreminaK' is not Class type. na liniji 143
+ERROR 12:46:45,387 - Symbol 'tezinaK' is not Class type. na liniji 144
+ERROR 12:46:45,388 - Symbol 'i' is not Class type. na liniji 145
+ERROR 12:46:45,388 - Symbol 'i' is not Class type. na liniji 147
+ERROR 12:46:45,388 - Symbol 'i' is not Class type. na liniji 148
+ERROR 12:46:45,388 - Symbol 'zapreminaS' is not Class type. na liniji 151
+ERROR 12:46:45,388 - Symbol 'zapreminaS' is not Class type. na liniji 151
+ERROR 12:46:45,388 - Symbol 'predmeti' is not Class type. na liniji 151
+ERROR 12:46:45,388 - Symbol 'i' is not Class type. na liniji 151
+ERROR 12:46:45,388 - Symbol 'predmeti' is not Class type. na liniji 29
+ERROR 12:46:45,388 - Expected type is Meth instead of 'Int'. na liniji 151
+ERROR 12:46:45,388 - Arithmetic expressions require both operands to be of type Int na liniji 151
+ERROR 12:46:45,388 - Symbol 'tezinaS' is not Class type. na liniji 152
+ERROR 12:46:45,388 - Symbol 'tezinaS' is not Class type. na liniji 152
+ERROR 12:46:45,388 - Symbol 'predmeti' is not Class type. na liniji 152
+ERROR 12:46:45,388 - Symbol 'i' is not Class type. na liniji 152
+ERROR 12:46:45,388 - Symbol 'predmeti' is not Class type. na liniji 23
+ERROR 12:46:45,388 - Expected type is Meth instead of 'Int'. na liniji 152
+ERROR 12:46:45,388 - Arithmetic expressions require both operands to be of type Int na liniji 152
+ERROR 12:46:45,388 - Symbol 'ispis' is not Class type. na liniji 153
+ERROR 12:46:45,388 - Symbol 'predmeti' is not Class type. na liniji 153
+ERROR 12:46:45,389 - Symbol 'i' is not Class type. na liniji 153
+ERROR 12:46:45,389 - Symbol 'i' is not Class type. na liniji 154
+ERROR 12:46:45,389 - Symbol 'i' is not Class type. na liniji 155
+ERROR 12:46:45,389 - Symbol 'zapreminaS' is not Class type. na liniji 157
+ERROR 12:46:45,389 - Symbol 'eol' is not Class type. na liniji 157
+ERROR 12:46:45,389 - Symbol 'zapreminaK' is not Class type. na liniji 158
+ERROR 12:46:45,389 - Symbol 'eol' is not Class type. na liniji 158
+ERROR 12:46:45,389 - Symbol 'tezinaS' is not Class type. na liniji 159
+ERROR 12:46:45,389 - Symbol 'eol' is not Class type. na liniji 159
+ERROR 12:46:45,389 - Symbol 'tezinaK' is not Class type. na liniji 160
+ERROR 12:46:45,389 - Symbol 'eol' is not Class type. na liniji 160

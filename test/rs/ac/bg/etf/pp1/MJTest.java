@@ -13,6 +13,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
+import rs.etf.pp1.symboltable.Tab;
 
 public class MJTest {
 
@@ -37,6 +38,12 @@ public class MJTest {
 				s = p.parse();
 				SyntaxNode prog = (SyntaxNode)(s.value);
 				System.out.println(prog.toString());
+				
+				SemanticAnalyzer semanticCheck = new SemanticAnalyzer();
+				prog.traverseBottomUp(semanticCheck);
+				
+		        
+				Tab.dump();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/7/2022 23:26:43
+// 19/7/2022 13:10:28
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,19 +9,29 @@ public class VarIdent implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private ArrayDecl ArrayDecl;
+    private String varName;
+    private ArrayOpt ArrayOpt;
 
-    public VarIdent (ArrayDecl ArrayDecl) {
-        this.ArrayDecl=ArrayDecl;
-        if(ArrayDecl!=null) ArrayDecl.setParent(this);
+    public VarIdent (String varName, ArrayOpt ArrayOpt) {
+        this.varName=varName;
+        this.ArrayOpt=ArrayOpt;
+        if(ArrayOpt!=null) ArrayOpt.setParent(this);
     }
 
-    public ArrayDecl getArrayDecl() {
-        return ArrayDecl;
+    public String getVarName() {
+        return varName;
     }
 
-    public void setArrayDecl(ArrayDecl ArrayDecl) {
-        this.ArrayDecl=ArrayDecl;
+    public void setVarName(String varName) {
+        this.varName=varName;
+    }
+
+    public ArrayOpt getArrayOpt() {
+        return ArrayOpt;
+    }
+
+    public void setArrayOpt(ArrayOpt ArrayOpt) {
+        this.ArrayOpt=ArrayOpt;
     }
 
     public SyntaxNode getParent() {
@@ -45,16 +55,16 @@ public class VarIdent implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ArrayDecl!=null) ArrayDecl.accept(visitor);
+        if(ArrayOpt!=null) ArrayOpt.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ArrayDecl!=null) ArrayDecl.traverseTopDown(visitor);
+        if(ArrayOpt!=null) ArrayOpt.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ArrayDecl!=null) ArrayDecl.traverseBottomUp(visitor);
+        if(ArrayOpt!=null) ArrayOpt.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -63,8 +73,11 @@ public class VarIdent implements SyntaxNode {
         buffer.append(tab);
         buffer.append("VarIdent(\n");
 
-        if(ArrayDecl!=null)
-            buffer.append(ArrayDecl.toString("  "+tab));
+        buffer.append(" "+tab+varName);
+        buffer.append("\n");
+
+        if(ArrayOpt!=null)
+            buffer.append(ArrayOpt.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

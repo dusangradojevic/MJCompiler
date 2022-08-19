@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/7/2022 23:26:43
+// 19/7/2022 13:10:28
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,17 +9,27 @@ public class ClassDecl implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
+    private String className;
     private ExtendsOpt ExtendsOpt;
     private VarDeclList VarDeclList;
     private ConstructorMethodDecl ConstructorMethodDecl;
 
-    public ClassDecl (ExtendsOpt ExtendsOpt, VarDeclList VarDeclList, ConstructorMethodDecl ConstructorMethodDecl) {
+    public ClassDecl (String className, ExtendsOpt ExtendsOpt, VarDeclList VarDeclList, ConstructorMethodDecl ConstructorMethodDecl) {
+        this.className=className;
         this.ExtendsOpt=ExtendsOpt;
         if(ExtendsOpt!=null) ExtendsOpt.setParent(this);
         this.VarDeclList=VarDeclList;
         if(VarDeclList!=null) VarDeclList.setParent(this);
         this.ConstructorMethodDecl=ConstructorMethodDecl;
         if(ConstructorMethodDecl!=null) ConstructorMethodDecl.setParent(this);
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className=className;
     }
 
     public ExtendsOpt getExtendsOpt() {
@@ -90,6 +100,9 @@ public class ClassDecl implements SyntaxNode {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("ClassDecl(\n");
+
+        buffer.append(" "+tab+className);
+        buffer.append("\n");
 
         if(ExtendsOpt!=null)
             buffer.append(ExtendsOpt.toString("  "+tab));

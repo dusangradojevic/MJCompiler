@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/7/2022 23:26:43
+// 19/7/2022 13:10:28
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,14 +9,16 @@ public class Condition implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private CondTerm CondTerm;
-    private ConditionList ConditionList;
+    public rs.etf.pp1.symboltable.concepts.Struct struct = null;
 
-    public Condition (CondTerm CondTerm, ConditionList ConditionList) {
+    private CondTerm CondTerm;
+    private CondTermList CondTermList;
+
+    public Condition (CondTerm CondTerm, CondTermList CondTermList) {
         this.CondTerm=CondTerm;
         if(CondTerm!=null) CondTerm.setParent(this);
-        this.ConditionList=ConditionList;
-        if(ConditionList!=null) ConditionList.setParent(this);
+        this.CondTermList=CondTermList;
+        if(CondTermList!=null) CondTermList.setParent(this);
     }
 
     public CondTerm getCondTerm() {
@@ -27,12 +29,12 @@ public class Condition implements SyntaxNode {
         this.CondTerm=CondTerm;
     }
 
-    public ConditionList getConditionList() {
-        return ConditionList;
+    public CondTermList getCondTermList() {
+        return CondTermList;
     }
 
-    public void setConditionList(ConditionList ConditionList) {
-        this.ConditionList=ConditionList;
+    public void setCondTermList(CondTermList CondTermList) {
+        this.CondTermList=CondTermList;
     }
 
     public SyntaxNode getParent() {
@@ -57,18 +59,18 @@ public class Condition implements SyntaxNode {
 
     public void childrenAccept(Visitor visitor) {
         if(CondTerm!=null) CondTerm.accept(visitor);
-        if(ConditionList!=null) ConditionList.accept(visitor);
+        if(CondTermList!=null) CondTermList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
-        if(ConditionList!=null) ConditionList.traverseTopDown(visitor);
+        if(CondTermList!=null) CondTermList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
-        if(ConditionList!=null) ConditionList.traverseBottomUp(visitor);
+        if(CondTermList!=null) CondTermList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -83,8 +85,8 @@ public class Condition implements SyntaxNode {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ConditionList!=null)
-            buffer.append(ConditionList.toString("  "+tab));
+        if(CondTermList!=null)
+            buffer.append(CondTermList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

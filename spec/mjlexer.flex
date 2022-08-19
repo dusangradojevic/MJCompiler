@@ -86,10 +86,10 @@ import java_cup.runtime.Symbol;
 "}" 		{ return new_symbol(sym.R_BRACES, yytext()); }
 
 
-[0-9]+													{ return new_symbol(sym.NUM_CONST, new Integer(yytext())); }
+"true"|"false" 											{ return new_symbol(sym.BOOL_CONST, new Boolean(yytext())); }
 ([a-z]|[A-Z])[a-zA-Z0-9_]*								{ return new_symbol(sym.IDENT, yytext()); }
+[0-9]+													{ return new_symbol(sym.NUM_CONST, new Integer(yytext())); }
 '[a-zA-Z0-9 !\"#$%&'()*+,-./:;<=>?@\[\\\]\^\_`\{\|\}~]'	{ return new_symbol(sym.CHAR_CONST, new Character(yytext().charAt(1))); }
-[true|false]											{ return new_symbol(sym.BOOL_CONST, new Boolean(yytext())); }
 
 
 "//"					{ yybegin(COMMENT_STATE); }

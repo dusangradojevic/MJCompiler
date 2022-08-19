@@ -1,20 +1,34 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/7/2022 23:26:43
+// 19/7/2022 13:10:28
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class SingleStatementDoWhile extends SingleStatement {
 
+    private DoWhileBegin DoWhileBegin;
     private Statement Statement;
+    private DoWhileEnd DoWhileEnd;
     private Condition Condition;
 
-    public SingleStatementDoWhile (Statement Statement, Condition Condition) {
+    public SingleStatementDoWhile (DoWhileBegin DoWhileBegin, Statement Statement, DoWhileEnd DoWhileEnd, Condition Condition) {
+        this.DoWhileBegin=DoWhileBegin;
+        if(DoWhileBegin!=null) DoWhileBegin.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
+        this.DoWhileEnd=DoWhileEnd;
+        if(DoWhileEnd!=null) DoWhileEnd.setParent(this);
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
+    }
+
+    public DoWhileBegin getDoWhileBegin() {
+        return DoWhileBegin;
+    }
+
+    public void setDoWhileBegin(DoWhileBegin DoWhileBegin) {
+        this.DoWhileBegin=DoWhileBegin;
     }
 
     public Statement getStatement() {
@@ -23,6 +37,14 @@ public class SingleStatementDoWhile extends SingleStatement {
 
     public void setStatement(Statement Statement) {
         this.Statement=Statement;
+    }
+
+    public DoWhileEnd getDoWhileEnd() {
+        return DoWhileEnd;
+    }
+
+    public void setDoWhileEnd(DoWhileEnd DoWhileEnd) {
+        this.DoWhileEnd=DoWhileEnd;
     }
 
     public Condition getCondition() {
@@ -38,18 +60,24 @@ public class SingleStatementDoWhile extends SingleStatement {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(DoWhileBegin!=null) DoWhileBegin.accept(visitor);
         if(Statement!=null) Statement.accept(visitor);
+        if(DoWhileEnd!=null) DoWhileEnd.accept(visitor);
         if(Condition!=null) Condition.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(DoWhileBegin!=null) DoWhileBegin.traverseTopDown(visitor);
         if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(DoWhileEnd!=null) DoWhileEnd.traverseTopDown(visitor);
         if(Condition!=null) Condition.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(DoWhileBegin!=null) DoWhileBegin.traverseBottomUp(visitor);
         if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(DoWhileEnd!=null) DoWhileEnd.traverseBottomUp(visitor);
         if(Condition!=null) Condition.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -59,8 +87,20 @@ public class SingleStatementDoWhile extends SingleStatement {
         buffer.append(tab);
         buffer.append("SingleStatementDoWhile(\n");
 
+        if(DoWhileBegin!=null)
+            buffer.append(DoWhileBegin.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
         if(Statement!=null)
             buffer.append(Statement.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(DoWhileEnd!=null)
+            buffer.append(DoWhileEnd.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

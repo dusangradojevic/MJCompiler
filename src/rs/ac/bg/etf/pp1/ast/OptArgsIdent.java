@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/7/2022 23:26:43
+// 19/7/2022 13:10:28
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,11 +9,21 @@ public class OptArgsIdent implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
+    private String optArgsName;
     private ConstValue ConstValue;
 
-    public OptArgsIdent (ConstValue ConstValue) {
+    public OptArgsIdent (String optArgsName, ConstValue ConstValue) {
+        this.optArgsName=optArgsName;
         this.ConstValue=ConstValue;
         if(ConstValue!=null) ConstValue.setParent(this);
+    }
+
+    public String getOptArgsName() {
+        return optArgsName;
+    }
+
+    public void setOptArgsName(String optArgsName) {
+        this.optArgsName=optArgsName;
     }
 
     public ConstValue getConstValue() {
@@ -62,6 +72,9 @@ public class OptArgsIdent implements SyntaxNode {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("OptArgsIdent(\n");
+
+        buffer.append(" "+tab+optArgsName);
+        buffer.append("\n");
 
         if(ConstValue!=null)
             buffer.append(ConstValue.toString("  "+tab));
