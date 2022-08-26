@@ -95,7 +95,7 @@ nonterminal Statement, SingleStatement, Statements, StatementList, DesignatorSta
 nonterminal Label;
 nonterminal NumConstOpt;
 nonterminal Assignop, Relop, Addop, Mulop;
-nonterminal DoWhileBegin, DoWhileEnd, IfStart, ThenStart;
+nonterminal DoWhileBegin, DoWhileEnd, IfStart, ThenStart, LogicalOr, LogicalAnd;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl, MethodName;
@@ -280,7 +280,7 @@ CondTermList ::= (CondTermListNext)    CondTermList CondTermListItem
 			   | (CondTermListEpsilon) /* epsilon */
 			   ;
 			   
-CondTermListItem ::= (CondTermListItem) LOGICAL_OR CondTerm;
+CondTermListItem ::= (CondTermListItem) LogicalOr CondTerm;
                 
 CondTerm ::= (CondTerm) CondFact CondFactList;
 
@@ -288,9 +288,13 @@ CondFactList ::= (CondFactListNext)    CondFactList CondFactListItem
 			   | (CondFactListEpsilon) /* epsilon */
                ;
                
-CondFactListItem ::= (CondFactListItem) LOGICAL_AND CondFact;
+CondFactListItem ::= (CondFactListItem) LogicalAnd CondFact;
                
 CondFact ::= (CondFact) Expr RelopExprOpt;
+
+LogicalOr ::= (LogicalOr) LOGICAL_OR;
+
+LogicalAnd ::= (LogicalAnd) LOGICAL_AND;
 		   
 RelopExprOpt ::= (RelopExprOptNext)    Relop Expr
 			   | (RelopExprOptEpsilon) /* epsilon */
@@ -344,10 +348,7 @@ DesignatorListItem ::= (DesignatorListItemIdent) DOT IDENT:designatorName
 				 	 | (DesignatorListItemArray) L_BRACKETS Expr R_BRACKETS
 				 	 ;
 
-DesignatorFirst ::= (DesignatorFirstIdent) IDENT:designatorName
-				  | (DesignatorFirstThis)  THIS 
-				  | (DesignatorFirstSuper) SUPER
-				  ;
+DesignatorFirst ::= (DesignatorFirst) IDENT:designatorName;
 		
 Label ::= (Label) IDENT:labelName;
 

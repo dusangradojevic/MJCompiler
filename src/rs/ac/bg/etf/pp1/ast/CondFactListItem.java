@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2022 13:10:28
+// 25/7/2022 16:58:3
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -11,11 +11,22 @@ public class CondFactListItem implements SyntaxNode {
     private int line;
     public rs.etf.pp1.symboltable.concepts.Struct struct = null;
 
+    private LogicalAnd LogicalAnd;
     private CondFact CondFact;
 
-    public CondFactListItem (CondFact CondFact) {
+    public CondFactListItem (LogicalAnd LogicalAnd, CondFact CondFact) {
+        this.LogicalAnd=LogicalAnd;
+        if(LogicalAnd!=null) LogicalAnd.setParent(this);
         this.CondFact=CondFact;
         if(CondFact!=null) CondFact.setParent(this);
+    }
+
+    public LogicalAnd getLogicalAnd() {
+        return LogicalAnd;
+    }
+
+    public void setLogicalAnd(LogicalAnd LogicalAnd) {
+        this.LogicalAnd=LogicalAnd;
     }
 
     public CondFact getCondFact() {
@@ -47,15 +58,18 @@ public class CondFactListItem implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(LogicalAnd!=null) LogicalAnd.accept(visitor);
         if(CondFact!=null) CondFact.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(LogicalAnd!=null) LogicalAnd.traverseTopDown(visitor);
         if(CondFact!=null) CondFact.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(LogicalAnd!=null) LogicalAnd.traverseBottomUp(visitor);
         if(CondFact!=null) CondFact.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -64,6 +78,12 @@ public class CondFactListItem implements SyntaxNode {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("CondFactListItem(\n");
+
+        if(LogicalAnd!=null)
+            buffer.append(LogicalAnd.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(CondFact!=null)
             buffer.append(CondFact.toString("  "+tab));

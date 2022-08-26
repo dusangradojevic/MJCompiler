@@ -1,49 +1,48 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2022 13:10:28
+// 25/7/2022 16:58:3
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public interface Visitor { 
 
-    public void visit(ReturnType ReturnType);
-    public void visit(Mulop Mulop);
-    public void visit(ConstructorMethodDecl ConstructorMethodDecl);
     public void visit(ActParsOpt ActParsOpt);
-    public void visit(RelopExprOpt RelopExprOpt);
-    public void visit(Relop Relop);
-    public void visit(MulopFactorList MulopFactorList);
-    public void visit(CondTermList CondTermList);
-    public void visit(DesignatorListItem DesignatorListItem);
-    public void visit(ProgramDeclList ProgramDeclList);
-    public void visit(ConstDefList ConstDefList);
-    public void visit(StatementList StatementList);
-    public void visit(Addop Addop);
+    public void visit(FormPars FormPars);
     public void visit(MinusOpt MinusOpt);
-    public void visit(NumConstOpt NumConstOpt);
     public void visit(Factor Factor);
-    public void visit(ExprOpt ExprOpt);
-    public void visit(CondFactList CondFactList);
-    public void visit(ArrayOpt ArrayOpt);
-    public void visit(ConstValue ConstValue);
-    public void visit(ExtendsOpt ExtendsOpt);
-    public void visit(ActParsList ActParsList);
-    public void visit(FuncCallOpt FuncCallOpt);
-    public void visit(ArrayExprOpt ArrayExprOpt);
-    public void visit(VarDeclList VarDeclList);
-    public void visit(ConstructorMethodDeclList ConstructorMethodDeclList);
-    public void visit(FormParsOptArgsList FormParsOptArgsList);
-    public void visit(DesignatorList DesignatorList);
-    public void visit(DesignatorStatement DesignatorStatement);
-    public void visit(DesignatorFirst DesignatorFirst);
     public void visit(Statement Statement);
+    public void visit(ConstructorMethodDecl ConstructorMethodDecl);
+    public void visit(Relop Relop);
+    public void visit(CondFactList CondFactList);
+    public void visit(OptArgs OptArgs);
+    public void visit(MulopFactorList MulopFactorList);
+    public void visit(AddopTermList AddopTermList);
+    public void visit(ConstructorMethodDeclList ConstructorMethodDeclList);
+    public void visit(ArrayOpt ArrayOpt);
+    public void visit(NumConstOpt NumConstOpt);
+    public void visit(DesignatorList DesignatorList);
+    public void visit(Mulop Mulop);
+    public void visit(DesignatorStatement DesignatorStatement);
+    public void visit(DesignatorListItem DesignatorListItem);
+    public void visit(Addop Addop);
+    public void visit(StatementList StatementList);
+    public void visit(FuncCallOpt FuncCallOpt);
+    public void visit(ReturnType ReturnType);
+    public void visit(CondTermList CondTermList);
     public void visit(VarIdentList VarIdentList);
     public void visit(MethodDeclList MethodDeclList);
-    public void visit(OptArgs OptArgs);
+    public void visit(ArrayExprOpt ArrayExprOpt);
+    public void visit(ConstValue ConstValue);
+    public void visit(ExtendsOpt ExtendsOpt);
+    public void visit(ProgramDeclList ProgramDeclList);
+    public void visit(RelopExprOpt RelopExprOpt);
+    public void visit(VarDeclList VarDeclList);
+    public void visit(FormParsOptArgsList FormParsOptArgsList);
+    public void visit(ConstDefList ConstDefList);
+    public void visit(ActParsList ActParsList);
     public void visit(SingleStatement SingleStatement);
-    public void visit(FormPars FormPars);
-    public void visit(AddopTermList AddopTermList);
+    public void visit(ExprOpt ExprOpt);
     public void visit(MulopMod MulopMod);
     public void visit(MulopDiv MulopDiv);
     public void visit(MulopMul MulopMul);
@@ -57,9 +56,7 @@ public interface Visitor {
     public void visit(RelopEqualsTo RelopEqualsTo);
     public void visit(Assignop Assignop);
     public void visit(Label Label);
-    public void visit(DesignatorFirstSuper DesignatorFirstSuper);
-    public void visit(DesignatorFirstThis DesignatorFirstThis);
-    public void visit(DesignatorFirstIdent DesignatorFirstIdent);
+    public void visit(DesignatorFirst DesignatorFirst);
     public void visit(DesignatorListItemArray DesignatorListItemArray);
     public void visit(DesignatorListItemIdent DesignatorListItemIdent);
     public void visit(DesignatorListEpsilon DesignatorListEpsilon);
@@ -87,6 +84,8 @@ public interface Visitor {
     public void visit(Expr Expr);
     public void visit(RelopExprOptEpsilon RelopExprOptEpsilon);
     public void visit(RelopExprOptNext RelopExprOptNext);
+    public void visit(LogicalAnd LogicalAnd);
+    public void visit(LogicalOr LogicalOr);
     public void visit(CondFact CondFact);
     public void visit(CondFactListItem CondFactListItem);
     public void visit(CondFactListEpsilon CondFactListEpsilon);

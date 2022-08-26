@@ -1,0 +1,13 @@
+INFO  16:54:33,897 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  16:54:34,010 - #2 program
+INFO  16:54:34,010 - #22 test302
+INFO  16:54:34,010 - #7 const
+INFO  16:54:34,012 - #22 int
+INFO  16:54:34,012 - #22 jedan
+INFO  16:54:34,014 - #39 =
+INFO  16:54:34,014 - #23 1
+INFO  16:54:34,014 - #42 ;
+ERROR 16:54:34,016 - 
+Syntax error. on line 5
+ERROR 16:54:34,017 - Fatal error, parsing can not be continued. on line 5
+INFO  16:54:34,029 - Destination file already exists. Its content is being deleted.

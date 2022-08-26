@@ -1,13 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2022 13:10:28
+// 25/7/2022 16:58:3
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class DesignatorFirstThis extends DesignatorFirst {
+public class LogicalOr implements SyntaxNode {
 
-    public DesignatorFirstThis () {
+    private SyntaxNode parent;
+    private int line;
+    public LogicalOr () {
+    }
+
+    public SyntaxNode getParent() {
+        return parent;
+    }
+
+    public void setParent(SyntaxNode parent) {
+        this.parent=parent;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line=line;
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +46,10 @@ public class DesignatorFirstThis extends DesignatorFirst {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("DesignatorFirstThis(\n");
+        buffer.append("LogicalOr(\n");
 
         buffer.append(tab);
-        buffer.append(") [DesignatorFirstThis]");
+        buffer.append(") [LogicalOr]");
         return buffer.toString();
     }
 }

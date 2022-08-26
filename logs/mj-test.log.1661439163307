@@ -1,0 +1,6 @@
+INFO  16:52:28,828 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  16:52:28,924 - #2 program
+INFO  16:52:28,924 - #22 test302
+ERROR 16:52:28,925 - 
+Syntax error. on line 5
+ERROR 16:52:28,925 - Fatal error, parsing can not be continued. on line 5

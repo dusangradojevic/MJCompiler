@@ -122,6 +122,8 @@ nonterminal DoWhileBegin DoWhileBegin;
 nonterminal DoWhileEnd DoWhileEnd;
 nonterminal IfStart IfStart;
 nonterminal ThenStart ThenStart;
+nonterminal LogicalOr LogicalOr;
+nonterminal LogicalAnd LogicalAnd;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl, MethodName;
@@ -306,7 +308,7 @@ CondTermList ::= (CondTermListNext)    CondTermList:C1 CondTermListItem:C2 {: RE
 			   | (CondTermListEpsilon) {: RESULT=new CondTermListEpsilon(); :} /* epsilon */
 			   ;
 			   
-CondTermListItem ::= (CondTermListItem) LOGICAL_OR CondTerm:C1 {: RESULT=new CondTermListItem(C1); RESULT.setLine(C1left); :};
+CondTermListItem ::= (CondTermListItem) LogicalOr:L1 CondTerm:C2 {: RESULT=new CondTermListItem(L1, C2); RESULT.setLine(L1left); :};
                 
 CondTerm ::= (CondTerm) CondFact:C1 CondFactList:C2 {: RESULT=new CondTerm(C1, C2); RESULT.setLine(C1left); :};
 
@@ -314,9 +316,13 @@ CondFactList ::= (CondFactListNext)    CondFactList:C1 CondFactListItem:C2 {: RE
 			   | (CondFactListEpsilon) {: RESULT=new CondFactListEpsilon(); :} /* epsilon */
                ;
                
-CondFactListItem ::= (CondFactListItem) LOGICAL_AND CondFact:C1 {: RESULT=new CondFactListItem(C1); RESULT.setLine(C1left); :};
+CondFactListItem ::= (CondFactListItem) LogicalAnd:L1 CondFact:C2 {: RESULT=new CondFactListItem(L1, C2); RESULT.setLine(L1left); :};
                
 CondFact ::= (CondFact) Expr:E1 RelopExprOpt:R2 {: RESULT=new CondFact(E1, R2); RESULT.setLine(E1left); :};
+
+LogicalOr ::= (LogicalOr) LOGICAL_OR {: RESULT=new LogicalOr(); :};
+
+LogicalAnd ::= (LogicalAnd) LOGICAL_AND {: RESULT=new LogicalAnd(); :};
 		   
 RelopExprOpt ::= (RelopExprOptNext)    Relop:R1 Expr:E2 {: RESULT=new RelopExprOptNext(R1, E2); RESULT.setLine(R1left); :}
 			   | (RelopExprOptEpsilon) {: RESULT=new RelopExprOptEpsilon(); :} /* epsilon */
@@ -370,10 +376,7 @@ DesignatorListItem ::= (DesignatorListItemIdent) DOT IDENT:designatorName {: RES
 				 	 | (DesignatorListItemArray) L_BRACKETS Expr:E1 R_BRACKETS {: RESULT=new DesignatorListItemArray(E1); RESULT.setLine(E1left); :}
 				 	 ;
 
-DesignatorFirst ::= (DesignatorFirstIdent) IDENT:designatorName {: RESULT=new DesignatorFirstIdent(designatorName); RESULT.setLine(designatorNameleft); :}
-				  | (DesignatorFirstThis)  THIS {: RESULT=new DesignatorFirstThis(); :} 
-				  | (DesignatorFirstSuper) SUPER {: RESULT=new DesignatorFirstSuper(); :}
-				  ;
+DesignatorFirst ::= (DesignatorFirst) IDENT:designatorName {: RESULT=new DesignatorFirst(designatorName); RESULT.setLine(designatorNameleft); :};
 		
 Label ::= (Label) IDENT:labelName {: RESULT=new Label(labelName); RESULT.setLine(labelNameleft); :};
 

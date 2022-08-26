@@ -1,0 +1,30 @@
+INFO  16:58:07,580 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  16:58:07,665 - #2 program
+INFO  16:58:07,665 - #22 test302
+INFO  16:58:07,665 - #7 const
+INFO  16:58:07,667 - #22 int
+INFO  16:58:07,668 - #22 jedan
+INFO  16:58:07,669 - #39 =
+INFO  16:58:07,669 - #23 1
+INFO  16:58:07,669 - #42 ;
+INFO  16:58:07,672 - #22 int
+INFO  16:58:07,673 - #22 i
+INFO  16:58:07,673 - #42 ;
+INFO  16:58:07,677 - #22 bool
+INFO  16:58:07,679 - #22 ibool
+INFO  16:58:07,679 - #42 ;
+INFO  16:58:07,679 - #22 int
+INFO  16:58:07,679 - #22 niz2
+INFO  16:58:07,679 - #42 ;
+INFO  16:58:07,679 - #22 int
+INFO  16:58:07,679 - #22 niz
+INFO  16:58:07,680 - #48 [
+INFO  16:58:07,680 - #49 ]
+INFO  16:58:07,680 - #42 ;
+INFO  16:58:07,681 - #22 int
+INFO  16:58:07,682 - #22 a
+INFO  16:58:07,682 - #42 ;
+INFO  16:58:07,682 - #50 {
+INFO  16:58:07,682 - #51 }
+ERROR 16:58:07,693 - Main method not defined. On line 3
+INFO  16:58:07,693 - Destination file already exists. Its content is being deleted.

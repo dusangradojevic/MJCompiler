@@ -1,0 +1,41 @@
+INFO  17:10:33,498 - Compiling source file: D:\Edu\Fax\Materijali\VII semestar\PP1\Projekat\workspace\MJCompiler\test\program.mj
+INFO  17:10:34,425 - #2 program
+INFO  17:10:34,425 - #22 test302
+INFO  17:10:34,425 - #7 const
+INFO  17:10:34,437 - #22 int
+INFO  17:10:34,437 - #22 jedan
+INFO  17:10:34,447 - #39 =
+INFO  17:10:34,447 - #23 1
+INFO  17:10:34,447 - #42 ;
+INFO  17:10:34,466 - #22 int
+INFO  17:10:34,469 - #22 i
+INFO  17:10:34,469 - #42 ;
+INFO  17:10:34,493 - #22 bool
+INFO  17:10:34,502 - #22 ibool
+INFO  17:10:34,502 - #42 ;
+INFO  17:10:34,502 - #22 int
+INFO  17:10:34,502 - #22 niz2
+INFO  17:10:34,502 - #42 ;
+INFO  17:10:34,502 - #22 int
+INFO  17:10:34,503 - #22 niz
+INFO  17:10:34,503 - #48 [
+INFO  17:10:34,503 - #49 ]
+INFO  17:10:34,503 - #42 ;
+INFO  17:10:34,505 - #22 int
+INFO  17:10:34,505 - #22 a
+INFO  17:10:34,505 - #42 ;
+INFO  17:10:34,505 - #50 {
+INFO  17:10:34,505 - #22 a
+INFO  17:10:34,508 - #39 =
+ERROR 17:10:34,508 - 
+Syntax error. on line 16
+ERROR 17:10:34,508 - Fatal error, parsing can not be continued. on line 16
+INFO  17:10:34,584 - Destination file already exists. Its content is being deleted.
+INFO  17:10:34,621 - #23 20
+INFO  17:10:34,622 - #42 ;
+INFO  17:10:34,622 - #12 print
+INFO  17:10:34,622 - #46 (
+INFO  17:10:34,622 - #23 2
+INFO  17:10:34,622 - #47 )
+INFO  17:10:34,622 - #42 ;
+INFO  17:10:34,622 - #51 }

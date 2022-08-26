@@ -2,6 +2,8 @@ package rs.ac.bg.etf.pp1;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -16,6 +18,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public class MethodParsNum {
 		public int formParsNum = 0;
 		public int optArgsNum = 0;
+		public List<Integer> defaultValuesList = new LinkedList<>();
 		
 		public MethodParsNum() {}
 		
@@ -49,7 +52,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	private int ifLevel = 0;
 
-	private HashMap<String, MethodParsNum> methodFormParsOptArgsMap = new HashMap<>();
+	public static HashMap<String, MethodParsNum> methodFormParsOptArgsMap = new HashMap<>();
 
 	/****************************************************************************
 	 **************************** CONSTANTS ********************************
@@ -185,6 +188,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		return compatible;
 	}
+	
+	private static boolean isIntegralType(Struct structType) {
+		return structType.equals(Tab.intType) || structType.equals(Tab.charType);
+	}
 
 	private Struct checkIfValidExpr(Struct leftOperandType, Struct rightOperandType, SyntaxNode visitedNode) {
 		Struct returnType = Tab.intType;
@@ -199,8 +206,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		else if (leftOperandType == null)
 			return rightOperandType;
 
-		if (leftOperandType.equals(Tab.intType) && rightOperandType.equals(Tab.intType))
-			return returnType;
+		if (isIntegralType(leftOperandType) && isIntegralType(rightOperandType))
+			return leftOperandType;
 		else if (!leftOperandType.equals(Tab.noType) || !rightOperandType.equals(Tab.noType))
 			reportError("Arithmetic expressions require both operands to be of type Int", visitedNode);
 
@@ -449,13 +456,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		Obj optArgObj = Tab.insert(Obj.Var, optArgName, objType);
-		optArgObj.setFpPos(assigningValue);
+		Tab.insert(Obj.Var, optArgName, objType);
 
 		String methodNameString = currentMethod.getName();
 
 		MethodParsNum methodParsNum = methodFormParsOptArgsMap.get(methodNameString);
 		methodParsNum.optArgsNum++;
+		methodParsNum.defaultValuesList.add(assigningValue);
 		methodFormParsOptArgsMap.put(methodNameString, methodParsNum);
 	}
 
@@ -469,18 +476,18 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	@Override
-	public void visit(DesignatorFirstIdent designatorFirstIdent) {
-		String designatorName = designatorFirstIdent.getDesignatorName();
+	public void visit(DesignatorFirst designatorFirst) {
+		String designatorName = designatorFirst.getDesignatorName();
 
 		if (Tab.find(designatorName) == Tab.noObj) {
-			reportError("Symbol '" + designatorName + "' is not defined.", designatorFirstIdent);
+			reportError("Symbol '" + designatorName + "' is not defined.", designatorFirst);
 			return;
 		}
 
 		designatorFirstItemObj = Tab.find(designatorName);
 
 		if (designatorFirstItemObj == Tab.noObj) {
-			reportError("Symbol '" + designatorName + "' is not defined.", designatorFirstIdent);
+			reportError("Symbol '" + designatorName + "' is not defined.", designatorFirst);
 		}
 
 	}

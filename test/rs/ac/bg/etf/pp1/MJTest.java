@@ -2,6 +2,7 @@ package rs.ac.bg.etf.pp1;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -14,6 +15,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
 import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.mj.runtime.Code;
 
 public class MJTest {
 
@@ -41,9 +43,21 @@ public class MJTest {
 				
 				SemanticAnalyzer semanticCheck = new SemanticAnalyzer();
 				prog.traverseBottomUp(semanticCheck);
-				
 		        
 				Tab.dump();
+				
+				File dest = new File("test/program.obj");
+
+	            if (dest.exists()) {
+	                log.info("Destination file already exists. Its content is being deleted.");
+	                dest.delete();
+	            }
+				
+				CodeGenerator codeGen = new CodeGenerator();
+				prog.traverseBottomUp(codeGen);
+				
+				Code.write(new FileOutputStream(dest));
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
