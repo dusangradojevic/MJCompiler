@@ -125,6 +125,12 @@ nonterminal ThenStart ThenStart;
 nonterminal LogicalOr LogicalOr;
 nonterminal LogicalAnd LogicalAnd;
 
+nonterminal ConstValueErrorRecovery ConstValueErrorRecovery;
+nonterminal VarDeclErrorRecovery VarDeclErrorRecovery;
+nonterminal VarIdentErrorRecovery VarIdentErrorRecovery;
+nonterminal FormParsIdentErrorRecovery FormParsIdentErrorRecovery;
+nonterminal DesignatorErrorRecovery DesignatorErrorRecovery;
+
 nonterminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl, MethodName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorFirst, DesignatorList, DesignatorListItem;
@@ -165,11 +171,15 @@ ConstDef ::= (ConstDef) IDENT:constName ASSIGNMENT ConstValue:C1 {: RESULT=new C
 ConstDefList ::= (ConstDefListNext)    ConstDefList:C1 COMMA ConstDef:C2 {: RESULT=new ConstDefListNext(C1, C2); RESULT.setLine(C1left); :}
 			   | (ConstDefListEpsilon) {: RESULT=new ConstDefListEpsilon(); :} /* epsilon */
 			   ;
+			   
+ConstValueErrorRecovery ::= (ConstValueNoError) ConstValue:C1 {: RESULT=new ConstValueNoError(C1); RESULT.setLine(C1left); :}
+						  | (ConstValueError)   error {: System.err.println("Error recovery while defining constant."); :} {: RESULT=new ConstValueError(); :}
+						  ;
 				
 ConstValue ::= (NumConst)  NUM_CONST:numConst {: RESULT=new NumConst(numConst); RESULT.setLine(numConstleft); :}
 			 | (CharConst) CHAR_CONST:charConst {: RESULT=new CharConst(charConst); RESULT.setLine(charConstleft); :}
 			 | (BoolConst) BOOL_CONST:boolConst {: RESULT=new BoolConst(boolConst); RESULT.setLine(boolConstleft); :}
-			 | error 	   {: System.err.println("Recovery error while assigning"); :} {: RESULT=new ConstValueDerived1(); :}
+			 | error 	   {: System.err.println("Error recovery while assigning"); :} {: RESULT=new ConstValueDerived1(); :}
 			 ;
 
 
@@ -186,6 +196,15 @@ VarIdentList ::= (VarIdentListDeclared) VarIdentList:V1 COMMA VarIdent:V2 {: RES
 VarDeclList ::= (VarDeclListDeclared) VarDeclList:V1 VarDecl:V2 {: RESULT=new VarDeclListDeclared(V1, V2); RESULT.setLine(V1left); :}
               | (VarDeclListEpsilon) {: RESULT=new VarDeclListEpsilon(); :}  /* epsilon */
               ;   
+             
+VarDeclErrorRecovery ::= (VarDeclNoError) VarDecl:V1 {: RESULT=new VarDeclNoError(V1); RESULT.setLine(V1left); :}
+            		   | (VarDeclError1) error SEMICOLON {: System.err.println("Error recovery while defining variable."); :} {: RESULT=new VarDeclError1(); :}
+            		   | (VarDeclError2) error {: System.err.println("Error recovery while defining variable."); :} {: RESULT=new VarDeclError2(); :}
+            		   ;
+            		   
+VarIdentErrorRecovery ::= (VarIdentNoError) VarIdent:V1 {: RESULT=new VarIdentNoError(V1); RESULT.setLine(V1left); :}
+						| (VarIdentError)   error {: System.err.println("Error recovery while defining variable."); :} {: RESULT=new VarIdentError(); :}
+                    	;
               
 ArrayOpt ::= (ArrayOptNext)    L_BRACKETS R_BRACKETS {: RESULT=new ArrayOptNext(); :}
 		   | (ArrayOptEpsilon) {: RESULT=new ArrayOptEpsilon(); :} /* epsilon */
@@ -234,7 +253,11 @@ FormPars ::= (FormParsNext)  FormPars:F1 COMMA Type:T2 FormParsIdent:F3 {: RESUL
            | (FormParsFirst) Type:T1 FormParsIdent:F2 {: RESULT=new FormParsFirst(T1, F2); RESULT.setLine(T1left); :}
            ;
 
-FormParsIdent ::= (FormParsIdent) IDENT:formParName ArrayOpt:isArray {: RESULT=new FormParsIdent(formParName, isArray); RESULT.setLine(formParNameleft); :};          	    		   	   		 
+FormParsIdent ::= (FormParsIdent) IDENT:formParName ArrayOpt:isArray {: RESULT=new FormParsIdent(formParName, isArray); RESULT.setLine(formParNameleft); :};          	 
+
+FormParsIdentErrorRecovery ::= (FormParsIdentNoError) FormParsIdent:F1 {: RESULT=new FormParsIdentNoError(F1); RESULT.setLine(F1left); :}
+							 | (FormParsIdentError)   error {: System.err.println("Error recovery while declaring formal parameters."); :} {: RESULT=new FormParsIdentError(); :}
+							 ;   		   	   		 
 		   	   
 OptArgs ::= (OptArgsNext)  OptArgs:O1 COMMA Type:T2 OptArgsIdent:O3 {: RESULT=new OptArgsNext(O1, T2, O3); RESULT.setLine(O1left); :}
           | (OptArgsFirst) Type:T1 OptArgsIdent:O2 {: RESULT=new OptArgsFirst(T1, O2); RESULT.setLine(T1left); :}
@@ -280,7 +303,9 @@ DesignatorStatement ::= (DesignatorStatementAssignop) Designator:D1 Assignop:A2 
 					  | (DesignatorStatementActPars)  Designator:D1 L_PARENTHESES ActParsOpt:A2 R_PARENTHESES {: RESULT=new DesignatorStatementActPars(D1, A2); RESULT.setLine(D1left); :}
                       | (DesignatorStatementInc) 	  Designator:D1 INCREMENT {: RESULT=new DesignatorStatementInc(D1); RESULT.setLine(D1left); :}
                       | (DesignatorStatementDec) 	  Designator:D1 DECREMENT {: RESULT=new DesignatorStatementDec(D1); RESULT.setLine(D1left); :}
-                      ; 	
+                      ; 
+                      
+DesignatorErrorRecovery ::= (DesignatorErrorRecovery) ASSIGNMENT error {: RESULT=new DesignatorErrorRecovery(); :};	
                       
 IfStart ::= (IfStart) IF {: RESULT=new IfStart(); :};
 

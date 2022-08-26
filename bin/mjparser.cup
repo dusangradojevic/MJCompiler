@@ -97,6 +97,8 @@ nonterminal NumConstOpt;
 nonterminal Assignop, Relop, Addop, Mulop;
 nonterminal DoWhileBegin, DoWhileEnd, IfStart, ThenStart, LogicalOr, LogicalAnd;
 
+nonterminal ConstValueErrorRecovery, VarDeclErrorRecovery, VarIdentErrorRecovery, FormParsIdentErrorRecovery, DesignatorErrorRecovery;
+
 nonterminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl, MethodName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorFirst, DesignatorList, DesignatorListItem;
@@ -137,11 +139,15 @@ ConstDef ::= (ConstDef) IDENT:constName ASSIGNMENT ConstValue;
 ConstDefList ::= (ConstDefListNext)    ConstDefList COMMA ConstDef
 			   | (ConstDefListEpsilon) /* epsilon */
 			   ;
+			   
+ConstValueErrorRecovery ::= (ConstValueNoError) ConstValue
+						  | (ConstValueError)   error {: System.err.println("Error recovery while defining constant."); :}
+						  ;
 				
 ConstValue ::= (NumConst)  NUM_CONST:numConst
 			 | (CharConst) CHAR_CONST:charConst
 			 | (BoolConst) BOOL_CONST:boolConst
-			 | error 	   {: System.err.println("Recovery error while assigning"); :}
+			 | error 	   {: System.err.println("Error recovery while assigning"); :}
 			 ;
 
 
@@ -158,6 +164,15 @@ VarIdentList ::= (VarIdentListDeclared) VarIdentList COMMA VarIdent
 VarDeclList ::= (VarDeclListDeclared) VarDeclList VarDecl
               | (VarDeclListEpsilon)  /* epsilon */
               ;   
+             
+VarDeclErrorRecovery ::= (VarDeclNoError) VarDecl
+            		   | (VarDeclError1) error SEMICOLON {: System.err.println("Error recovery while defining variable."); :}
+            		   | (VarDeclError2) error {: System.err.println("Error recovery while defining variable."); :}
+            		   ;
+            		   
+VarIdentErrorRecovery ::= (VarIdentNoError) VarIdent
+						| (VarIdentError)   error {: System.err.println("Error recovery while defining variable."); :}
+                    	;
               
 ArrayOpt ::= (ArrayOptNext)    L_BRACKETS R_BRACKETS
 		   | (ArrayOptEpsilon) /* epsilon */
@@ -206,7 +221,11 @@ FormPars ::= (FormParsNext)  FormPars COMMA Type FormParsIdent
            | (FormParsFirst) Type FormParsIdent
            ;
 
-FormParsIdent ::= (FormParsIdent) IDENT:formParName ArrayOpt:isArray;          	    		   	   		 
+FormParsIdent ::= (FormParsIdent) IDENT:formParName ArrayOpt:isArray;          	 
+
+FormParsIdentErrorRecovery ::= (FormParsIdentNoError) FormParsIdent
+							 | (FormParsIdentError)   error {: System.err.println("Error recovery while declaring formal parameters."); :}
+							 ;   		   	   		 
 		   	   
 OptArgs ::= (OptArgsNext)  OptArgs COMMA Type OptArgsIdent
           | (OptArgsFirst) Type OptArgsIdent
@@ -252,7 +271,9 @@ DesignatorStatement ::= (DesignatorStatementAssignop) Designator Assignop Expr
 					  | (DesignatorStatementActPars)  Designator L_PARENTHESES ActParsOpt R_PARENTHESES
                       | (DesignatorStatementInc) 	  Designator INCREMENT
                       | (DesignatorStatementDec) 	  Designator DECREMENT
-                      ; 	
+                      ; 
+                      
+DesignatorErrorRecovery ::= (DesignatorErrorRecovery) ASSIGNMENT error;	
                       
 IfStart ::= (IfStart) IF;
 

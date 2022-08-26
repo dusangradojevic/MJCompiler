@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/7/2022 16:58:3
+// 26/7/2022 11:20:58
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,19 +9,23 @@ public interface Visitor {
 
     public void visit(ActParsOpt ActParsOpt);
     public void visit(FormPars FormPars);
+    public void visit(VarDeclErrorRecovery VarDeclErrorRecovery);
     public void visit(MinusOpt MinusOpt);
     public void visit(Factor Factor);
     public void visit(Statement Statement);
     public void visit(ConstructorMethodDecl ConstructorMethodDecl);
     public void visit(Relop Relop);
     public void visit(CondFactList CondFactList);
+    public void visit(VarIdentErrorRecovery VarIdentErrorRecovery);
     public void visit(OptArgs OptArgs);
     public void visit(MulopFactorList MulopFactorList);
     public void visit(AddopTermList AddopTermList);
     public void visit(ConstructorMethodDeclList ConstructorMethodDeclList);
     public void visit(ArrayOpt ArrayOpt);
     public void visit(NumConstOpt NumConstOpt);
+    public void visit(FormParsIdentErrorRecovery FormParsIdentErrorRecovery);
     public void visit(DesignatorList DesignatorList);
+    public void visit(ConstValueErrorRecovery ConstValueErrorRecovery);
     public void visit(Mulop Mulop);
     public void visit(DesignatorStatement DesignatorStatement);
     public void visit(DesignatorListItem DesignatorListItem);
@@ -105,6 +109,7 @@ public interface Visitor {
     public void visit(DoWhileBegin DoWhileBegin);
     public void visit(ThenStart ThenStart);
     public void visit(IfStart IfStart);
+    public void visit(DesignatorErrorRecovery DesignatorErrorRecovery);
     public void visit(DesignatorStatementDec DesignatorStatementDec);
     public void visit(DesignatorStatementInc DesignatorStatementInc);
     public void visit(DesignatorStatementActPars DesignatorStatementActPars);
@@ -132,6 +137,8 @@ public interface Visitor {
     public void visit(OptArgsIdent OptArgsIdent);
     public void visit(OptArgsFirst OptArgsFirst);
     public void visit(OptArgsNext OptArgsNext);
+    public void visit(FormParsIdentError FormParsIdentError);
+    public void visit(FormParsIdentNoError FormParsIdentNoError);
     public void visit(FormParsIdent FormParsIdent);
     public void visit(FormParsFirst FormParsFirst);
     public void visit(FormParsNext FormParsNext);
@@ -157,6 +164,11 @@ public interface Visitor {
     public void visit(ClassDecl ClassDecl);
     public void visit(ArrayOptEpsilon ArrayOptEpsilon);
     public void visit(ArrayOptNext ArrayOptNext);
+    public void visit(VarIdentError VarIdentError);
+    public void visit(VarIdentNoError VarIdentNoError);
+    public void visit(VarDeclError2 VarDeclError2);
+    public void visit(VarDeclError1 VarDeclError1);
+    public void visit(VarDeclNoError VarDeclNoError);
     public void visit(VarDeclListEpsilon VarDeclListEpsilon);
     public void visit(VarDeclListDeclared VarDeclListDeclared);
     public void visit(VarIdentListEpsilon VarIdentListEpsilon);
@@ -167,6 +179,8 @@ public interface Visitor {
     public void visit(BoolConst BoolConst);
     public void visit(CharConst CharConst);
     public void visit(NumConst NumConst);
+    public void visit(ConstValueError ConstValueError);
+    public void visit(ConstValueNoError ConstValueNoError);
     public void visit(ConstDefListEpsilon ConstDefListEpsilon);
     public void visit(ConstDefListNext ConstDefListNext);
     public void visit(ConstDef ConstDef);

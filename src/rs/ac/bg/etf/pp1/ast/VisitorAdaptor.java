@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/7/2022 16:58:3
+// 26/7/2022 11:20:58
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,19 +9,23 @@ public abstract class VisitorAdaptor implements Visitor {
 
     public void visit(ActParsOpt ActParsOpt) { }
     public void visit(FormPars FormPars) { }
+    public void visit(VarDeclErrorRecovery VarDeclErrorRecovery) { }
     public void visit(MinusOpt MinusOpt) { }
     public void visit(Factor Factor) { }
     public void visit(Statement Statement) { }
     public void visit(ConstructorMethodDecl ConstructorMethodDecl) { }
     public void visit(Relop Relop) { }
     public void visit(CondFactList CondFactList) { }
+    public void visit(VarIdentErrorRecovery VarIdentErrorRecovery) { }
     public void visit(OptArgs OptArgs) { }
     public void visit(MulopFactorList MulopFactorList) { }
     public void visit(AddopTermList AddopTermList) { }
     public void visit(ConstructorMethodDeclList ConstructorMethodDeclList) { }
     public void visit(ArrayOpt ArrayOpt) { }
     public void visit(NumConstOpt NumConstOpt) { }
+    public void visit(FormParsIdentErrorRecovery FormParsIdentErrorRecovery) { }
     public void visit(DesignatorList DesignatorList) { }
+    public void visit(ConstValueErrorRecovery ConstValueErrorRecovery) { }
     public void visit(Mulop Mulop) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(DesignatorListItem DesignatorListItem) { }
@@ -105,6 +109,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DoWhileBegin DoWhileBegin) { visit(); }
     public void visit(ThenStart ThenStart) { visit(); }
     public void visit(IfStart IfStart) { visit(); }
+    public void visit(DesignatorErrorRecovery DesignatorErrorRecovery) { visit(); }
     public void visit(DesignatorStatementDec DesignatorStatementDec) { visit(); }
     public void visit(DesignatorStatementInc DesignatorStatementInc) { visit(); }
     public void visit(DesignatorStatementActPars DesignatorStatementActPars) { visit(); }
@@ -132,6 +137,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(OptArgsIdent OptArgsIdent) { visit(); }
     public void visit(OptArgsFirst OptArgsFirst) { visit(); }
     public void visit(OptArgsNext OptArgsNext) { visit(); }
+    public void visit(FormParsIdentError FormParsIdentError) { visit(); }
+    public void visit(FormParsIdentNoError FormParsIdentNoError) { visit(); }
     public void visit(FormParsIdent FormParsIdent) { visit(); }
     public void visit(FormParsFirst FormParsFirst) { visit(); }
     public void visit(FormParsNext FormParsNext) { visit(); }
@@ -157,6 +164,11 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ClassDecl ClassDecl) { visit(); }
     public void visit(ArrayOptEpsilon ArrayOptEpsilon) { visit(); }
     public void visit(ArrayOptNext ArrayOptNext) { visit(); }
+    public void visit(VarIdentError VarIdentError) { visit(); }
+    public void visit(VarIdentNoError VarIdentNoError) { visit(); }
+    public void visit(VarDeclError2 VarDeclError2) { visit(); }
+    public void visit(VarDeclError1 VarDeclError1) { visit(); }
+    public void visit(VarDeclNoError VarDeclNoError) { visit(); }
     public void visit(VarDeclListEpsilon VarDeclListEpsilon) { visit(); }
     public void visit(VarDeclListDeclared VarDeclListDeclared) { visit(); }
     public void visit(VarIdentListEpsilon VarIdentListEpsilon) { visit(); }
@@ -167,6 +179,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(BoolConst BoolConst) { visit(); }
     public void visit(CharConst CharConst) { visit(); }
     public void visit(NumConst NumConst) { visit(); }
+    public void visit(ConstValueError ConstValueError) { visit(); }
+    public void visit(ConstValueNoError ConstValueNoError) { visit(); }
     public void visit(ConstDefListEpsilon ConstDefListEpsilon) { visit(); }
     public void visit(ConstDefListNext ConstDefListNext) { visit(); }
     public void visit(ConstDef ConstDef) { visit(); }
